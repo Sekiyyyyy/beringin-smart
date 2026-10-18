@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import {
   IonContent,
   IonHeader,
@@ -38,6 +38,13 @@ const Detail: React.FC = () => {
 
   const laporan = getLaporanById(idLaporan);
   const role = localStorage.getItem('role') || 'siswa';
+
+  // Auth Guard: Arahkan ke /login jika belum ada token
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+      window.location.href = '/login';
+    }
+  }, []);
 
   const handleSelesai = async () => {
     if (!idLaporan) return;

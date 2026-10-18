@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   IonContent,
   IonPage,
@@ -9,7 +9,6 @@ import {
   IonToast,
   IonSpinner,
   IonIcon,
-  IonChip,
 } from '@ionic/react';
 import {
   mailOutline,
@@ -17,10 +16,7 @@ import {
   shieldCheckmarkOutline,
   schoolOutline,
   arrowForwardOutline,
-  personOutline,
-  buildOutline,
 } from 'ionicons/icons';
-import { useNavigate } from 'react-router-dom';
 import API from '../services/api';
 
 const Login: React.FC = () => {
@@ -28,7 +24,13 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+
+  // Jika sudah memiliki sesi login, langsung arahkan ke Home
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      window.location.href = '/home';
+    }
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,30 +40,22 @@ const Login: React.FC = () => {
     try {
       const response = await API.post('/login', { email, password });
 
-      // Simpan token, role, dan data user ke localStorage
+      // Simpan kredensial token dan user ke localStorage
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('role', response.data.user.role);
       localStorage.setItem('user', JSON.stringify(response.data.user));
 
-      // Pindah ke Halaman Home
-      navigate('/home');
-      window.location.reload(); // Refresh halaman agar token terbaca Context
+      // Pindah ke Halaman Home secara bersih
+      window.location.href = '/home';
     } catch (error: any) {
       console.error('Login Error:', error);
       if (error.response && error.response.data && error.response.data.message) {
         setErrorMessage(error.response.data.message);
       } else {
-        setErrorMessage('Gagal terhubung ke server Laravel! Pastikan php artisan serve aktif.');
+        setErrorMessage('Gagal terhubung ke server Laravel! Pastikan server aktif.');
       }
-    } finally {
       setLoading(false);
     }
-  };
-
-  // Shortcut login cepat untuk mempermudah demonstrasi / pengujian guru & siswa
-  const fillCredentials = (roleEmail: string) => {
-    setEmail(roleEmail);
-    setPassword('password123');
   };
 
   return (
@@ -166,7 +160,6 @@ const Login: React.FC = () => {
                       border: '1.5px solid #e2e8f0',
                       borderRadius: '12px',
                       padding: '0 12px',
-                      transition: 'border-color 0.2s',
                     }}
                   >
                     <IonIcon icon={mailOutline} style={{ fontSize: '1.2rem', color: '#64748b', marginRight: '8px' }} />
@@ -240,33 +233,6 @@ const Login: React.FC = () => {
                   )}
                 </IonButton>
               </form>
-
-              {/* Quick Login Chips for Demo / Testing */}
-              <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid #f1f5f9' }}>
-                <p style={{ margin: '0 0 10px 0', fontSize: '0.78rem', fontWeight: 600, color: '#94a3b8', textAlign: 'center' }}>
-                  AKSES CEPAT UJI COBA (SKKNI SEEDER):
-                </p>
-                <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                  <IonChip
-                    outline
-                    color="primary"
-                    onClick={() => fillCredentials('siswa@beringin.sch.id')}
-                    style={{ cursor: 'pointer', fontWeight: 600, fontSize: '0.78rem' }}
-                  >
-                    <IonIcon icon={personOutline} />
-                    Login Siswa
-                  </IonChip>
-                  <IonChip
-                    outline
-                    color="success"
-                    onClick={() => fillCredentials('petugas@beringin.sch.id')}
-                    style={{ cursor: 'pointer', fontWeight: 600, fontSize: '0.78rem' }}
-                  >
-                    <IonIcon icon={buildOutline} />
-                    Login Petugas
-                  </IonChip>
-                </div>
-              </div>
             </IonCardContent>
           </IonCard>
 

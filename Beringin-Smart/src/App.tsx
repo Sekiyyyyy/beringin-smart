@@ -23,26 +23,15 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App: React.FC = () => {
-  const isLoggedIn = !!localStorage.getItem('token');
-
   return (
     <IonApp>
       <LaporanProvider>
         <IonReactRouter>
           <IonRouterOutlet>
             <Route path="/login" element={<Login />} />
-            <Route
-              path="/home"
-              element={isLoggedIn ? <Home /> : <Navigate to="/login" replace />}
-            />
-            <Route
-              path="/detail/:id"
-              element={isLoggedIn ? <Detail /> : <Navigate to="/login" replace />}
-            />
-            <Route
-              path="/"
-              element={<Navigate to={isLoggedIn ? "/home" : "/login"} replace />}
-            />
+            <Route path="/home" element={<Home />} />
+            <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/" element={<Navigate to="/home" replace />} />
           </IonRouterOutlet>
         </IonReactRouter>
       </LaporanProvider>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import {
   IonContent,
   IonHeader,
@@ -84,20 +84,28 @@ const Home: React.FC = () => {
     window.location.href = '/login';
   };
 
-  // Statistik Laporan
-  const totalLaporan = laporanList.length;
-  const laporanSelesai = laporanList.filter((item) => item.status === 'Selesai').length;
+  // Auth Guard: Arahkan ke /login jika belum ada token
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+      window.location.href = '/login';
+    }
+  }, []);
+
+  // Statistik Laporan dengan proteksi array
+  const list = Array.isArray(laporanList) ? laporanList : [];
+  const totalLaporan = list.length;
+  const laporanSelesai = list.filter((item) => item && item.status === 'Selesai').length;
   const laporanPending = totalLaporan - laporanSelesai;
 
-  // Filter List Data berdasarkan Search & Kategori
-  const filteredList = laporanList.filter((item) => {
+  // Filter List Data berdasarkan Search & Kategori secara aman
+  const filteredList = list.filter((item) => {
+    if (!item) return false;
     const matchesCategory = selectedCategory === 'Semua' || item.kategori === selectedCategory;
-    const query = searchQuery.toLowerCase();
-    const matchesSearch =
-      item.lokasi.toLowerCase().includes(query) ||
-      (item.nama && item.nama.toLowerCase().includes(query)) ||
-      (item.nama_pelapor && item.nama_pelapor.toLowerCase().includes(query)) ||
-      item.deskripsi.toLowerCase().includes(query);
+    const query = (searchQuery || '').toLowerCase();
+    const lokasi = (item.lokasi || '').toLowerCase();
+    const namaPelapor = (item.nama_pelapor || item.nama || '').toLowerCase();
+    const deskripsiText = (item.deskripsi || '').toLowerCase();
+    const matchesSearch = lokasi.includes(query) || namaPelapor.includes(query) || deskripsiText.includes(query);
     return matchesCategory && matchesSearch;
   });
 
