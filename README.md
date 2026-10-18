@@ -25,8 +25,6 @@ beringin-smart/
 │   │   └── seeders/DatabaseSeeder.php  # Akun Default Siswa & Petugas Sarpras
 │   ├── routes/api.php                  # API Endpoints & Sanctum Middleware Protection
 │   └── config/cors.php                 # CORS Configuration
-│
-├── LKPU_Lanjutan_Integrasi_Ionic_Laravel.md  # Dokumen Resmi LKPU Praktik Pembelajaran
 └── README.md
 ```
 
