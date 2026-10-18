@@ -13,9 +13,9 @@ import {
 import {
   mailOutline,
   lockClosedOutline,
-  shieldCheckmarkOutline,
-  schoolOutline,
+  sparklesOutline,
   arrowForwardOutline,
+  shieldCheckmarkOutline,
 } from 'ionicons/icons';
 import API from '../services/api';
 
@@ -45,7 +45,7 @@ const Login: React.FC = () => {
       localStorage.setItem('role', response.data.user.role);
       localStorage.setItem('user', JSON.stringify(response.data.user));
 
-      // Pindah ke Halaman Home secara bersih
+      // Pindah ke Halaman Home secara bersih dan stabil
       window.location.href = '/home';
     } catch (error: any) {
       console.error('Login Error:', error);
@@ -63,7 +63,12 @@ const Login: React.FC = () => {
       <IonContent
         className="ion-padding"
         style={{
-          '--background': 'linear-gradient(145deg, #0f172a 0%, #1e293b 40%, #1e3a8a 100%)',
+          '--background': `
+            radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.28) 0%, transparent 45%),
+            radial-gradient(circle at 85% 25%, rgba(236, 72, 153, 0.22) 0%, transparent 40%),
+            radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.2) 0%, transparent 50%),
+            #080c14
+          `,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -71,22 +76,22 @@ const Login: React.FC = () => {
       >
         <div style={{ maxWidth: '440px', margin: '40px auto 20px auto' }}>
           {/* Logo & Hero Branding */}
-          <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '26px' }}>
             <div
               style={{
-                width: '72px',
-                height: '72px',
+                width: '76px',
+                height: '76px',
                 margin: '0 auto 16px auto',
-                background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
-                borderRadius: '20px',
+                background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)',
+                borderRadius: '24px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 10px 25px rgba(59, 130, 246, 0.4)',
-                border: '2px solid rgba(255, 255, 255, 0.15)',
+                boxShadow: '0 0 30px rgba(168, 85, 247, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
+                border: '1.5px solid rgba(255, 255, 255, 0.3)',
               }}
             >
-              <IonIcon icon={schoolOutline} style={{ fontSize: '2.4rem', color: '#ffffff' }} />
+              <IonIcon icon={sparklesOutline} style={{ fontSize: '2.5rem', color: '#ffffff' }} />
             </div>
 
             <div
@@ -94,22 +99,35 @@ const Login: React.FC = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '4px 14px',
-                background: 'rgba(59, 130, 246, 0.15)',
-                border: '1px solid rgba(147, 197, 253, 0.25)',
-                borderRadius: '30px',
-                color: '#93c5fd',
+                padding: '5px 16px',
+                background: 'rgba(255, 255, 255, 0.08)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255, 255, 255, 0.18)',
+                borderRadius: '9999px',
+                color: '#c4b5fd',
                 fontSize: '0.78rem',
                 fontWeight: 700,
                 letterSpacing: '0.8px',
                 textTransform: 'uppercase',
                 marginBottom: '10px',
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2)',
               }}
             >
               <IonIcon icon={shieldCheckmarkOutline} /> SMKN 1 BERINGIN • PPLG
             </div>
 
-            <h1 style={{ margin: '0 0 6px 0', fontSize: '1.9rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.5px' }}>
+            <h1
+              style={{
+                margin: '0 0 6px 0',
+                fontSize: '2.1rem',
+                fontWeight: 900,
+                color: '#ffffff',
+                letterSpacing: '-0.5px',
+                fontFamily: "'Outfit', sans-serif",
+                textShadow: '0 2px 10px rgba(0, 0, 0, 0.4)',
+              }}
+            >
               Beringin Smart
             </h1>
             <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.92rem' }}>
@@ -117,23 +135,33 @@ const Login: React.FC = () => {
             </p>
           </div>
 
-          {/* Login Card */}
+          {/* Liquid Glass Login Card */}
           <IonCard
             style={{
               margin: 0,
-              borderRadius: '20px',
-              background: 'rgba(255, 255, 255, 0.98)',
-              boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.35)',
-              border: '1px solid rgba(255, 255, 255, 0.6)',
+              borderRadius: '24px',
+              background: 'rgba(15, 23, 42, 0.65)',
+              backdropFilter: 'blur(24px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+              boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              border: '1px solid rgba(255, 255, 255, 0.14)',
               overflow: 'hidden',
             }}
           >
-            <IonCardContent style={{ padding: '28px 24px' }}>
-              <div style={{ marginBottom: '20px' }}>
-                <h2 style={{ margin: '0 0 4px 0', fontSize: '1.3rem', fontWeight: 700, color: '#0f172a' }}>
+            <IonCardContent style={{ padding: '30px 24px' }}>
+              <div style={{ marginBottom: '22px' }}>
+                <h2
+                  style={{
+                    margin: '0 0 4px 0',
+                    fontSize: '1.4rem',
+                    fontWeight: 800,
+                    color: '#ffffff',
+                    fontFamily: "'Outfit', sans-serif",
+                  }}
+                >
                   Selamat Datang
                 </h2>
-                <p style={{ margin: 0, fontSize: '0.85rem', color: '#64748b' }}>
+                <p style={{ margin: 0, fontSize: '0.85rem', color: '#94a3b8' }}>
                   Silakan masuk menggunakan akun terdaftar Anda
                 </p>
               </div>
@@ -147,7 +175,7 @@ const Login: React.FC = () => {
                       marginBottom: '6px',
                       fontSize: '0.82rem',
                       fontWeight: 600,
-                      color: '#334155',
+                      color: '#cbd5e1',
                     }}
                   >
                     Alamat Email
@@ -156,33 +184,35 @@ const Login: React.FC = () => {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      background: '#f8fafc',
-                      border: '1.5px solid #e2e8f0',
-                      borderRadius: '12px',
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      borderRadius: '14px',
                       padding: '0 12px',
+                      backdropFilter: 'blur(8px)',
+                      boxShadow: 'inset 0 1px 2px rgba(0, 0, 0, 0.2)',
                     }}
                   >
-                    <IonIcon icon={mailOutline} style={{ fontSize: '1.2rem', color: '#64748b', marginRight: '8px' }} />
+                    <IonIcon icon={mailOutline} style={{ fontSize: '1.2rem', color: '#a855f7', marginRight: '8px' }} />
                     <IonInput
                       type="email"
                       value={email}
                       onIonInput={(e) => setEmail(e.detail.value!)}
                       placeholder="nama@beringin.sch.id"
                       required
-                      style={{ fontSize: '0.92rem' }}
+                      style={{ fontSize: '0.92rem', color: '#ffffff' }}
                     />
                   </div>
                 </div>
 
                 {/* Password Input */}
-                <div style={{ marginBottom: '22px' }}>
+                <div style={{ marginBottom: '24px' }}>
                   <label
                     style={{
                       display: 'block',
                       marginBottom: '6px',
                       fontSize: '0.82rem',
                       fontWeight: 600,
-                      color: '#334155',
+                      color: '#cbd5e1',
                     }}
                   >
                     Kata Sandi
@@ -191,20 +221,22 @@ const Login: React.FC = () => {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      background: '#f8fafc',
-                      border: '1.5px solid #e2e8f0',
-                      borderRadius: '12px',
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      borderRadius: '14px',
                       padding: '0 12px',
+                      backdropFilter: 'blur(8px)',
+                      boxShadow: 'inset 0 1px 2px rgba(0, 0, 0, 0.2)',
                     }}
                   >
-                    <IonIcon icon={lockClosedOutline} style={{ fontSize: '1.2rem', color: '#64748b', marginRight: '8px' }} />
+                    <IonIcon icon={lockClosedOutline} style={{ fontSize: '1.2rem', color: '#a855f7', marginRight: '8px' }} />
                     <IonInput
                       type="password"
                       value={password}
                       onIonInput={(e) => setPassword(e.detail.value!)}
                       placeholder="••••••••"
                       required
-                      style={{ fontSize: '0.92rem' }}
+                      style={{ fontSize: '0.92rem', color: '#ffffff' }}
                     />
                   </div>
                 </div>
@@ -214,14 +246,11 @@ const Login: React.FC = () => {
                   expand="block"
                   type="submit"
                   disabled={loading}
+                  className="liquid-btn-primary"
                   style={{
-                    height: '48px',
+                    height: '50px',
                     margin: 0,
-                    '--background': 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
-                    '--border-radius': '12px',
-                    '--box-shadow': '0 8px 18px rgba(37, 99, 235, 0.35)',
-                    fontWeight: 700,
-                    fontSize: '0.95rem',
+                    fontSize: '0.96rem',
                   }}
                 >
                   {loading ? (
@@ -237,7 +266,7 @@ const Login: React.FC = () => {
           </IonCard>
 
           {/* Footer note */}
-          <div style={{ textAlign: 'center', marginTop: '18px' }}>
+          <div style={{ textAlign: 'center', marginTop: '20px' }}>
             <span style={{ fontSize: '0.78rem', color: '#64748b' }}>
               © 2026-2027 SMK Negeri 1 Beringin • Berdasarkan SKKNI No. 282/2016
             </span>

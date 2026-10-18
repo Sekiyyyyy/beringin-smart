@@ -40,11 +40,11 @@ import {
   timeOutline,
   chevronForwardOutline,
   logOutOutline,
-  schoolOutline,
-  funnelOutline,
   sparklesOutline,
   addCircleOutline,
   handRightOutline,
+  funnelOutline,
+  layersOutline,
 } from 'ionicons/icons';
 import { useIonRouter } from '@ionic/react';
 import { LaporanContext } from '../context/LaporanContext';
@@ -102,10 +102,10 @@ const Home: React.FC = () => {
     if (!item) return false;
     const matchesCategory = selectedCategory === 'Semua' || item.kategori === selectedCategory;
     const query = (searchQuery || '').toLowerCase();
-    const lokasi = (item.lokasi || '').toLowerCase();
-    const namaPelapor = (item.nama_pelapor || item.nama || '').toLowerCase();
-    const deskripsiText = (item.deskripsi || '').toLowerCase();
-    const matchesSearch = lokasi.includes(query) || namaPelapor.includes(query) || deskripsiText.includes(query);
+    const lokasiStr = (item.lokasi || '').toLowerCase();
+    const namaPelaporStr = (item.nama_pelapor || item.nama || '').toLowerCase();
+    const deskripsiStr = (item.deskripsi || '').toLowerCase();
+    const matchesSearch = lokasiStr.includes(query) || namaPelaporStr.includes(query) || deskripsiStr.includes(query);
     return matchesCategory && matchesSearch;
   });
 
@@ -144,13 +144,13 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      {/* Mobile-Friendly Responsive Header */}
+      {/* 21st.dev Translucent Liquid Glass Header */}
       <IonHeader className="ion-no-border">
         <IonToolbar className="home-header-toolbar">
           {/* Brand & App Info */}
           <div slot="start" className="mobile-header-brand">
             <div className="mobile-logo-box">
-              <IonIcon icon={schoolOutline} />
+              <IonIcon icon={sparklesOutline} />
             </div>
 
             <div className="mobile-brand-text">
@@ -160,7 +160,7 @@ const Home: React.FC = () => {
                 <span>•</span>
                 <span
                   style={{
-                    color: userRole === 'petugas' ? '#34d399' : '#93c5fd',
+                    color: userRole === 'petugas' ? '#34d399' : '#c4b5fd',
                     fontWeight: 700,
                   }}
                 >
@@ -173,11 +173,8 @@ const Home: React.FC = () => {
           {/* User Avatar & Logout Button */}
           <IonButtons slot="end" className="mobile-header-end">
             <div className="mobile-avatar-pill">
-              <div
-                className="mobile-avatar-circle"
-                style={{ background: userRole === 'petugas' ? '#10b981' : '#3b82f6' }}
-              >
-                {currentUser?.name ? currentUser.name.charAt(0).toUpperCase() : 'U'}
+              <div className="mobile-avatar-circle">
+                {currentUser?.name ? currentUser.name.charAt(0).toUpperCase() : 'R'}
               </div>
               <span className="mobile-user-name">
                 {currentUser?.name ? currentUser.name.split(' ')[0] : 'User'}
@@ -198,52 +195,89 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent className="ion-padding" style={{ '--background': '#f8fafc' } as React.CSSProperties}>
+      <IonContent
+        className="ion-padding"
+        style={{
+          '--background': `
+            radial-gradient(circle at 12% 18%, rgba(99, 102, 241, 0.22) 0%, transparent 45%),
+            radial-gradient(circle at 88% 15%, rgba(236, 72, 153, 0.18) 0%, transparent 40%),
+            radial-gradient(circle at 50% 85%, rgba(6, 182, 212, 0.16) 0%, transparent 50%),
+            #080c14
+          `,
+        } as React.CSSProperties}
+      >
         <IonGrid fixed style={{ maxWidth: '1200px', padding: 0 }}>
-          {/* Compact Greeting Banner */}
+          {/* Liquid Glass Hero Greeting Banner */}
           <div className="home-hero-greeting">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
-                <h2 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center' }}>
-                  Halo, {currentUser?.name ? currentUser.name.split(' ')[0] : 'Pengguna'}
-                  <IonIcon icon={handRightOutline} style={{ color: '#f59e0b', fontSize: '1.15rem', marginLeft: '6px' }} />
+                <h2
+                  style={{
+                    margin: 0,
+                    fontSize: '1.2rem',
+                    fontWeight: 800,
+                    color: '#ffffff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    fontFamily: "'Outfit', sans-serif",
+                  }}
+                >
+                  Halo, {currentUser?.name ? currentUser.name.split(' ')[0] : 'Ahmad Rizky'}
+                  <IonIcon icon={handRightOutline} style={{ color: '#fbbf24', fontSize: '1.2rem', marginLeft: '8px' }} />
                 </h2>
-                <p style={{ margin: '2px 0 0 0', fontSize: '0.78rem', color: '#64748b' }}>
-                  {userRole === 'petugas' ? 'Pantau & tindak lanjuti laporan sarpras.' : 'Laporkan kendala fasilitas sekolah.'}
+                <p style={{ margin: '3px 0 0 0', fontSize: '0.8rem', color: '#94a3b8' }}>
+                  {userRole === 'petugas' ? 'Pantau & tindak lanjuti laporan sarpras sekolah.' : 'Laporkan kendala fasilitas sekolah untuk tindak lanjut cepat.'}
                 </p>
               </div>
 
               <IonButton
                 size="small"
                 fill="outline"
-                color="primary"
+                color="secondary"
                 onClick={() => refreshLaporan()}
-                style={{ height: '30px', fontWeight: 600, fontSize: '0.75rem', '--border-radius': '16px' }}
+                style={{
+                  height: '32px',
+                  fontWeight: 700,
+                  fontSize: '0.75rem',
+                  '--border-radius': '9999px',
+                  '--border-color': 'rgba(168, 85, 247, 0.5)',
+                  '--color': '#c4b5fd',
+                  backdropFilter: 'blur(10px)',
+                }}
               >
                 <IonIcon slot="icon-only" icon={sparklesOutline} />
               </IonButton>
             </div>
           </div>
 
-          {/* Compact 3-Column Mobile Stats Grid */}
-          <IonRow className="mobile-stats-row">
+          {/* 3-Column 21st.dev Liquid Stat Grid */}
+          <IonRow className="mobile-stats-row" style={{ marginBottom: '14px' }}>
             {/* Total Laporan */}
             <IonCol size="4">
               <div
-                className="bs-metric-card"
+                className="liquid-stat-card"
                 style={{
-                  background: 'var(--bg-gradient-card-blue)',
-                  padding: '10px 8px',
+                  background: 'var(--liquid-gradient-card-cyan)',
+                  padding: '12px 8px',
                   textAlign: 'center',
                 }}
               >
-                <div style={{ fontSize: '1.3rem', color: '#2563eb' }}>
-                  <IonIcon icon={statsChartOutline} />
+                <div style={{ fontSize: '1.35rem', color: '#38bdf8' }}>
+                  <IonIcon icon={layersOutline} />
                 </div>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1e3a8a', lineHeight: 1.1 }}>
+                <div
+                  style={{
+                    fontSize: '1.45rem',
+                    fontWeight: 900,
+                    color: '#f0f9ff',
+                    lineHeight: 1.1,
+                    fontFamily: "'Outfit', sans-serif",
+                    textShadow: '0 0 15px rgba(56, 189, 248, 0.4)',
+                  }}
+                >
                   {totalLaporan}
                 </div>
-                <div style={{ fontSize: '0.65rem', fontWeight: 700, color: '#2563eb', textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
                   Total
                 </div>
               </div>
@@ -252,20 +286,29 @@ const Home: React.FC = () => {
             {/* Menunggu / Proses */}
             <IonCol size="4">
               <div
-                className="bs-metric-card"
+                className="liquid-stat-card"
                 style={{
-                  background: 'var(--bg-gradient-card-amber)',
-                  padding: '10px 8px',
+                  background: 'var(--liquid-gradient-card-amber)',
+                  padding: '12px 8px',
                   textAlign: 'center',
                 }}
               >
-                <div style={{ fontSize: '1.3rem', color: '#d97706' }}>
+                <div style={{ fontSize: '1.35rem', color: '#fbbf24' }}>
                   <IonIcon icon={timeOutline} />
                 </div>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#92400e', lineHeight: 1.1 }}>
+                <div
+                  style={{
+                    fontSize: '1.45rem',
+                    fontWeight: 900,
+                    color: '#fffbeb',
+                    lineHeight: 1.1,
+                    fontFamily: "'Outfit', sans-serif",
+                    textShadow: '0 0 15px rgba(251, 191, 36, 0.4)',
+                  }}
+                >
                   {laporanPending}
                 </div>
-                <div style={{ fontSize: '0.65rem', fontWeight: 700, color: '#d97706', textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#fbbf24', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
                   Proses
                 </div>
               </div>
@@ -274,20 +317,29 @@ const Home: React.FC = () => {
             {/* Selesai */}
             <IonCol size="4">
               <div
-                className="bs-metric-card"
+                className="liquid-stat-card"
                 style={{
-                  background: 'var(--bg-gradient-card-green)',
-                  padding: '10px 8px',
+                  background: 'var(--liquid-gradient-card-emerald)',
+                  padding: '12px 8px',
                   textAlign: 'center',
                 }}
               >
-                <div style={{ fontSize: '1.3rem', color: '#059669' }}>
+                <div style={{ fontSize: '1.35rem', color: '#34d399' }}>
                   <IonIcon icon={checkmarkCircleOutline} />
                 </div>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#065f46', lineHeight: 1.1 }}>
+                <div
+                  style={{
+                    fontSize: '1.45rem',
+                    fontWeight: 900,
+                    color: '#ecfdf5',
+                    lineHeight: 1.1,
+                    fontFamily: "'Outfit', sans-serif",
+                    textShadow: '0 0 15px rgba(52, 211, 153, 0.4)',
+                  }}
+                >
                   {laporanSelesai}
                 </div>
-                <div style={{ fontSize: '0.65rem', fontWeight: 700, color: '#059669', textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#34d399', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
                   Selesai
                 </div>
               </div>
@@ -325,80 +377,119 @@ const Home: React.FC = () => {
               className={activeTab !== 'buat' ? 'ion-hide-lg-down' : ''}
               style={{ marginBottom: '16px' }}
             >
-              <IonCard className="bs-form-card" style={{ margin: 0 }}>
-                <IonCardHeader style={{ borderBottom: '1px solid #f1f5f9', padding: '14px 16px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <IonCard className="liquid-glass-card" style={{ margin: 0 }}>
+                <IonCardHeader style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', padding: '16px 18px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div
                       style={{
-                        width: '30px',
-                        height: '30px',
-                        borderRadius: '8px',
-                        background: '#eff6ff',
-                        color: '#3b82f6',
+                        width: '34px',
+                        height: '34px',
+                        borderRadius: '10px',
+                        background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.25) 100%)',
+                        color: '#c4b5fd',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        boxShadow: '0 0 12px rgba(168, 85, 247, 0.3)',
                       }}
                     >
                       <IonIcon icon={documentTextOutline} />
                     </div>
                     <div>
-                      <IonCardSubtitle style={{ color: '#3b82f6', fontWeight: 700, fontSize: '0.72rem', textTransform: 'uppercase' }}>
+                      <IonCardSubtitle style={{ color: '#a855f7', fontWeight: 700, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.6px' }}>
                         LAYANAN SARPRAS
                       </IonCardSubtitle>
-                      <IonCardTitle style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a' }}>
+                      <IonCardTitle
+                        style={{
+                          fontSize: '1.15rem',
+                          fontWeight: 800,
+                          color: '#ffffff',
+                          fontFamily: "'Outfit', sans-serif",
+                        }}
+                      >
                         Buat Tiket Pengaduan
                       </IonCardTitle>
                     </div>
                   </div>
                 </IonCardHeader>
 
-                <IonCardContent style={{ padding: '16px' }}>
+                <IonCardContent style={{ padding: '18px' }}>
                   <form onSubmit={handleSubmit}>
                     {/* Nama Pelapor */}
                     <div style={{ marginBottom: '14px' }}>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#334155', marginBottom: '5px' }}>
+                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#cbd5e1', marginBottom: '6px' }}>
                         Nama Pelapor
                       </label>
-                      <div style={{ display: 'flex', alignItems: 'center', border: '1.5px solid #e2e8f0', borderRadius: '10px', padding: '0 10px', background: '#f8fafc' }}>
-                        <IonIcon icon={personOutline} style={{ color: '#64748b', marginRight: '8px' }} />
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          border: '1px solid rgba(255, 255, 255, 0.12)',
+                          borderRadius: '12px',
+                          padding: '0 12px',
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          backdropFilter: 'blur(8px)',
+                        }}
+                      >
+                        <IonIcon icon={personOutline} style={{ color: '#a855f7', marginRight: '8px' }} />
                         <IonInput
                           placeholder="Masukkan nama lengkap Anda"
                           value={nama}
                           onIonInput={(e) => setNama(e.detail.value!)}
-                          style={{ fontSize: '0.88rem' }}
+                          style={{ fontSize: '0.88rem', color: '#ffffff' }}
                         />
                       </div>
                     </div>
 
                     {/* Lokasi / Ruangan */}
                     <div style={{ marginBottom: '14px' }}>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#334155', marginBottom: '5px' }}>
+                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#cbd5e1', marginBottom: '6px' }}>
                         Lokasi / Ruangan
                       </label>
-                      <div style={{ display: 'flex', alignItems: 'center', border: '1.5px solid #e2e8f0', borderRadius: '10px', padding: '0 10px', background: '#f8fafc' }}>
-                        <IonIcon icon={locationOutline} style={{ color: '#64748b', marginRight: '8px' }} />
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          border: '1px solid rgba(255, 255, 255, 0.12)',
+                          borderRadius: '12px',
+                          padding: '0 12px',
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          backdropFilter: 'blur(8px)',
+                        }}
+                      >
+                        <IonIcon icon={locationOutline} style={{ color: '#a855f7', marginRight: '8px' }} />
                         <IonInput
                           placeholder="Contoh: Lab Komputer 2"
                           value={lokasi}
                           onIonInput={(e) => setLokasi(e.detail.value!)}
-                          style={{ fontSize: '0.88rem' }}
+                          style={{ fontSize: '0.88rem', color: '#ffffff' }}
                         />
                       </div>
                     </div>
 
                     {/* Kategori Fasilitas */}
                     <div style={{ marginBottom: '14px' }}>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#334155', marginBottom: '5px' }}>
+                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#cbd5e1', marginBottom: '6px' }}>
                         Kategori Fasilitas
                       </label>
-                      <div style={{ display: 'flex', alignItems: 'center', border: '1.5px solid #e2e8f0', borderRadius: '10px', padding: '0 10px', background: '#f8fafc' }}>
-                        <IonIcon icon={listOutline} style={{ color: '#64748b', marginRight: '8px' }} />
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          border: '1px solid rgba(255, 255, 255, 0.12)',
+                          borderRadius: '12px',
+                          padding: '0 12px',
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          backdropFilter: 'blur(8px)',
+                        }}
+                      >
+                        <IonIcon icon={listOutline} style={{ color: '#a855f7', marginRight: '8px' }} />
                         <IonSelect
                           value={kategori}
-                          placeholder="Pilih kategori"
+                          placeholder="Pilih kategori fasilitas"
                           onIonChange={(e) => setKategori(e.detail.value)}
-                          style={{ width: '100%', fontSize: '0.88rem' }}
+                          style={{ width: '100%', fontSize: '0.88rem', color: '#ffffff' }}
                         >
                           <IonSelectOption value="Fasilitas Kelas">Fasilitas Kelas</IonSelectOption>
                           <IonSelectOption value="Laboratorium">Laboratorium</IonSelectOption>
@@ -408,17 +499,25 @@ const Home: React.FC = () => {
                     </div>
 
                     {/* Deskripsi Masalah */}
-                    <div style={{ marginBottom: '18px' }}>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#334155', marginBottom: '5px' }}>
+                    <div style={{ marginBottom: '20px' }}>
+                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#cbd5e1', marginBottom: '6px' }}>
                         Detail Kerusakan
                       </label>
-                      <div style={{ border: '1.5px solid #e2e8f0', borderRadius: '10px', padding: '4px 10px', background: '#f8fafc' }}>
+                      <div
+                        style={{
+                          border: '1px solid rgba(255, 255, 255, 0.12)',
+                          borderRadius: '12px',
+                          padding: '4px 12px',
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          backdropFilter: 'blur(8px)',
+                        }}
+                      >
                         <IonTextarea
                           rows={3}
-                          placeholder="Jelaskan secara jelas kendala fasilitas..."
+                          placeholder="Jelaskan secara jelas kendala fasilitas yang ditemukan..."
                           value={deskripsi}
                           onIonInput={(e) => setDeskripsi(e.detail.value!)}
-                          style={{ fontSize: '0.88rem' }}
+                          style={{ fontSize: '0.88rem', color: '#ffffff' }}
                         />
                       </div>
                     </div>
@@ -428,14 +527,11 @@ const Home: React.FC = () => {
                       expand="block"
                       type="submit"
                       disabled={submitting}
+                      className="liquid-btn-primary"
                       style={{
-                        height: '44px',
+                        height: '46px',
                         margin: 0,
-                        '--background': 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
-                        '--border-radius': '10px',
-                        '--box-shadow': '0 4px 14px rgba(37, 99, 235, 0.3)',
-                        fontWeight: 700,
-                        fontSize: '0.9rem',
+                        fontSize: '0.92rem',
                       }}
                     >
                       {submitting ? (
@@ -458,13 +554,21 @@ const Home: React.FC = () => {
               className={activeTab !== 'daftar' ? 'ion-hide-lg-down' : ''}
             >
               {/* Header Feed + Searchbar */}
-              <div style={{ marginBottom: '12px' }}>
+              <div style={{ marginBottom: '14px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <div>
-                    <h3 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 800, color: '#0f172a' }}>
+                    <h3
+                      style={{
+                        margin: 0,
+                        fontSize: '1.15rem',
+                        fontWeight: 800,
+                        color: '#ffffff',
+                        fontFamily: "'Outfit', sans-serif",
+                      }}
+                    >
                       Daftar Tiket Pengaduan
                     </h3>
-                    <span style={{ fontSize: '0.75rem', color: '#64748b' }}>
+                    <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
                       Menampilkan {filteredList.length} dari {totalLaporan} laporan
                     </span>
                   </div>
@@ -472,31 +576,37 @@ const Home: React.FC = () => {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '4px',
-                      background: '#ecfdf5',
-                      border: '1px solid #a7f3d0',
-                      padding: '3px 8px',
-                      borderRadius: '16px',
-                      fontSize: '0.7rem',
+                      gap: '6px',
+                      background: 'rgba(16, 185, 129, 0.15)',
+                      border: '1px solid rgba(52, 211, 153, 0.35)',
+                      padding: '4px 12px',
+                      borderRadius: '9999px',
+                      fontSize: '0.72rem',
                       fontWeight: 700,
-                      color: '#059669',
+                      color: '#34d399',
+                      backdropFilter: 'blur(8px)',
                     }}
                   >
-                    <span className="bs-pulse-dot" style={{ backgroundColor: '#10b981' }} />
+                    <span className="liquid-pulse-dot" style={{ backgroundColor: '#10b981' }} />
                     Live Sync
                   </div>
                 </div>
 
-                {/* Search Bar */}
+                {/* Glass Search Bar */}
                 <IonSearchbar
                   value={searchQuery}
                   onIonInput={(e) => setSearchQuery(e.detail.value!)}
                   placeholder="Cari lokasi, kendala, atau nama..."
                   style={{
                     padding: 0,
-                    '--background': '#ffffff',
-                    '--border-radius': '10px',
-                    '--box-shadow': '0 1px 4px rgba(0,0,0,0.04)',
+                    '--background': 'rgba(255, 255, 255, 0.05)',
+                    '--color': '#ffffff',
+                    '--placeholder-color': '#94a3b8',
+                    '--icon-color': '#a855f7',
+                    '--border-radius': '14px',
+                    '--box-shadow': 'none',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    backdropFilter: 'blur(12px)',
                   } as React.CSSProperties}
                 />
 
@@ -507,9 +617,9 @@ const Home: React.FC = () => {
                       key={cat}
                       className={selectedCategory === cat ? 'filter-chip-active' : 'filter-chip-inactive'}
                       onClick={() => setSelectedCategory(cat)}
-                      style={{ cursor: 'pointer', fontSize: '0.75rem', height: '28px' }}
+                      style={{ cursor: 'pointer', fontSize: '0.76rem', height: '30px' }}
                     >
-                      {cat === 'Semua' && <IonIcon icon={funnelOutline} style={{ marginRight: '3px' }} />}
+                      {cat === 'Semua' && <IonIcon icon={funnelOutline} style={{ marginRight: '4px' }} />}
                       {cat}
                     </IonChip>
                   ))}
@@ -519,9 +629,9 @@ const Home: React.FC = () => {
               {/* Feed List Items */}
               {filteredList.length === 0 ? (
                 <div className="empty-state-box">
-                  <IonIcon icon={businessOutline} style={{ fontSize: '2.5rem', opacity: 0.4, marginBottom: '6px' }} />
-                  <p style={{ margin: 0, fontWeight: 700, fontSize: '0.9rem' }}>Tidak ada tiket pengaduan</p>
-                  <span style={{ fontSize: '0.75rem', opacity: 0.7 }}>
+                  <IonIcon icon={businessOutline} style={{ fontSize: '2.8rem', color: '#a855f7', opacity: 0.5, marginBottom: '8px' }} />
+                  <p style={{ margin: 0, fontWeight: 700, fontSize: '0.92rem', color: '#f8fafc' }}>Tidak ada tiket pengaduan</p>
+                  <span style={{ fontSize: '0.76rem', color: '#94a3b8' }}>
                     Coba ubah kata kunci pencarian atau kategori
                   </span>
                 </div>
@@ -530,54 +640,61 @@ const Home: React.FC = () => {
                   {filteredList.map((item) => (
                     <div
                       key={item.id}
-                      className="ticket-card-hover"
+                      className={`liquid-ticket-item ${item.status === 'Selesai' ? 'completed' : 'pending'}`}
                       onClick={() => router.push(`/detail/${item.id}`)}
-                      style={{
-                        background: '#ffffff',
-                        padding: '14px',
-                        cursor: 'pointer',
-                        boxShadow: '0 2px 6px rgba(0,0,0,0.02)',
-                      }}
+                      style={{ padding: '16px' }}
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                         <div style={{ minWidth: 0, flex: 1 }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
                             <span
                               style={{
-                                background: '#eff6ff',
-                                color: '#2563eb',
-                                fontSize: '0.7rem',
+                                background: 'rgba(99, 102, 241, 0.18)',
+                                color: '#a5b4fc',
+                                fontSize: '0.72rem',
                                 fontWeight: 700,
-                                padding: '2px 7px',
-                                borderRadius: '6px',
-                                border: '1px solid #bfdbfe',
+                                padding: '3px 8px',
+                                borderRadius: '9999px',
+                                border: '1px solid rgba(165, 180, 252, 0.3)',
+                                backdropFilter: 'blur(8px)',
                               }}
                             >
                               {item.kategori}
                             </span>
-                            <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
+                            <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
                               #{item.id}
                             </span>
                           </div>
 
-                          <h4 style={{ margin: '0 0 4px 0', fontSize: '0.98rem', fontWeight: 800, color: '#0f172a', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          <h4
+                            style={{
+                              margin: '0 0 4px 0',
+                              fontSize: '1.02rem',
+                              fontWeight: 800,
+                              color: '#ffffff',
+                              whiteSpace: 'nowrap',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis',
+                              fontFamily: "'Outfit', sans-serif",
+                            }}
+                          >
                             {item.lokasi}
                           </h4>
                         </div>
 
                         {/* Status Badge */}
                         {item.status === 'Selesai' ? (
-                          <div className="bs-badge-completed" style={{ fontSize: '0.72rem', padding: '3px 8px' }}>
+                          <div className="liquid-badge-completed">
                             <IonIcon icon={checkmarkCircleOutline} /> Selesai
                           </div>
                         ) : (
-                          <div className="bs-badge-pending" style={{ fontSize: '0.72rem', padding: '3px 8px' }}>
-                            <span className="bs-pulse-dot" /> {item.status || 'Menunggu'}
+                          <div className="liquid-badge-pending">
+                            <span className="liquid-pulse-dot" /> {item.status || 'Menunggu'}
                           </div>
                         )}
                       </div>
 
-                      <p style={{ margin: '2px 0 10px 0', fontSize: '0.82rem', color: '#475569', lineHeight: '1.4' }}>
+                      <p style={{ margin: '4px 0 12px 0', fontSize: '0.84rem', color: '#94a3b8', lineHeight: '1.45' }}>
                         {item.deskripsi.length > 80 ? `${item.deskripsi.substring(0, 80)}...` : item.deskripsi}
                       </p>
 
@@ -586,16 +703,16 @@ const Home: React.FC = () => {
                           display: 'flex',
                           justifyContent: 'space-between',
                           alignItems: 'center',
-                          borderTop: '1px solid #f1f5f9',
-                          paddingTop: '8px',
-                          fontSize: '0.75rem',
-                          color: '#64748b',
+                          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                          paddingTop: '10px',
+                          fontSize: '0.76rem',
+                          color: '#94a3b8',
                         }}
                       >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', minWidth: 0 }}>
-                          <IonIcon icon={personOutline} style={{ color: '#94a3b8', flexShrink: 0 }} />
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '5px', minWidth: 0 }}>
+                          <IonIcon icon={personOutline} style={{ color: '#a855f7', flexShrink: 0 }} />
                           <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                            Pelapor: <strong style={{ color: '#334155' }}>{item.nama_pelapor || item.nama}</strong>
+                            Pelapor: <strong style={{ color: '#e2e8f0' }}>{item.nama_pelapor || item.nama}</strong>
                           </span>
                         </div>
 
@@ -608,7 +725,7 @@ const Home: React.FC = () => {
                                 })
                               : item.tanggal || '-'}
                           </span>
-                          <IonIcon icon={chevronForwardOutline} style={{ color: '#94a3b8' }} />
+                          <IonIcon icon={chevronForwardOutline} style={{ color: '#a855f7' }} />
                         </div>
                       </div>
                     </div>

@@ -67,18 +67,39 @@ const Detail: React.FC = () => {
     return (
       <IonPage>
         <IonHeader className="ion-no-border">
-          <IonToolbar style={{ '--background': 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)', '--color': '#ffffff' } as React.CSSProperties}>
+          <IonToolbar style={{ '--background': 'rgba(8, 12, 20, 0.8)', '--color': '#ffffff' } as React.CSSProperties}>
             <IonButtons slot="start">
               <IonBackButton defaultHref="/home" text="Kembali" color="light" />
             </IonButtons>
-            <IonTitle style={{ fontWeight: 700 }}>Rincian Tiket Laporan</IonTitle>
+            <IonTitle style={{ fontWeight: 800, fontFamily: "'Outfit', sans-serif" }}>Rincian Tiket Laporan</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="ion-padding ion-text-center" style={{ '--background': '#f8fafc' } as React.CSSProperties}>
-          <div style={{ maxWidth: '400px', margin: '60px auto', padding: '30px', background: '#ffffff', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-            <IonIcon icon={alertCircleOutline} style={{ fontSize: '3rem', color: '#f59e0b', marginBottom: '12px' }} />
-            <h3 style={{ margin: '0 0 6px 0', fontWeight: 800, color: '#0f172a' }}>Data Tidak Ditemukan</h3>
-            <p style={{ margin: 0, color: '#64748b', fontSize: '0.9rem' }}>
+        <IonContent
+          className="ion-padding ion-text-center"
+          style={{
+            '--background': `
+              radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
+              #080c14
+            `,
+          } as React.CSSProperties}
+        >
+          <div
+            style={{
+              maxWidth: '400px',
+              margin: '60px auto',
+              padding: '32px',
+              background: 'rgba(15, 23, 42, 0.65)',
+              borderRadius: '20px',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              backdropFilter: 'blur(20px)',
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
+            }}
+          >
+            <IonIcon icon={alertCircleOutline} style={{ fontSize: '3.2rem', color: '#fbbf24', marginBottom: '14px' }} />
+            <h3 style={{ margin: '0 0 6px 0', fontWeight: 800, color: '#ffffff', fontFamily: "'Outfit', sans-serif" }}>
+              Data Tidak Ditemukan
+            </h3>
+            <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.9rem' }}>
               Tiket pengaduan yang Anda cari tidak tersedia atau telah dihapus.
             </p>
           </div>
@@ -91,38 +112,56 @@ const Detail: React.FC = () => {
 
   return (
     <IonPage>
+      {/* Translucent Liquid Glass Header */}
       <IonHeader className="ion-no-border">
-        <IonToolbar style={{ '--background': 'linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #1e3a8a 100%)', '--color': '#ffffff' } as React.CSSProperties}>
+        <IonToolbar
+          style={{
+            '--background': 'rgba(8, 12, 20, 0.8)',
+            '--color': '#ffffff',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+            backdropFilter: 'blur(24px)',
+          } as React.CSSProperties}
+        >
           <IonButtons slot="start">
             <IonBackButton defaultHref="/home" text="KEMBALI" color="light" />
           </IonButtons>
-          <IonTitle style={{ fontWeight: 800, letterSpacing: '-0.3px', fontSize: '1.05rem' }}>
+          <IonTitle style={{ fontWeight: 800, letterSpacing: '-0.3px', fontSize: '1.05rem', fontFamily: "'Outfit', sans-serif" }}>
             Rincian Tiket #{laporan.id}
           </IonTitle>
         </IonToolbar>
       </IonHeader>
 
-      <IonContent className="ion-padding" style={{ '--background': '#f8fafc' } as React.CSSProperties}>
+      <IonContent
+        className="ion-padding"
+        style={{
+          '--background': `
+            radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.22) 0%, transparent 45%),
+            radial-gradient(circle at 85% 20%, rgba(236, 72, 153, 0.18) 0%, transparent 40%),
+            #080c14
+          `,
+        } as React.CSSProperties}
+      >
         <div style={{ maxWidth: '640px', margin: '24px auto' }}>
-          {/* Main Detail Card */}
+          {/* Liquid Glass Main Card */}
           <IonCard
             style={{
               margin: 0,
-              borderRadius: '20px',
-              boxShadow: '0 10px 30px -5px rgba(15, 23, 42, 0.08)',
-              border: '1px solid #e2e8f0',
+              borderRadius: '24px',
+              boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              border: '1px solid rgba(255, 255, 255, 0.14)',
               overflow: 'hidden',
-              background: '#ffffff',
+              background: 'rgba(15, 23, 42, 0.65)',
+              backdropFilter: 'blur(24px) saturate(180%)',
             }}
           >
             {/* Top Status Banner */}
             <div
               style={{
                 background: isCompleted
-                  ? 'linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)'
-                  : 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
+                  ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)'
+                  : 'linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(239, 68, 68, 0.2) 100%)',
                 padding: '16px 22px',
-                borderBottom: `1px solid ${isCompleted ? '#a7f3d0' : '#fde68a'}`,
+                borderBottom: `1px solid ${isCompleted ? 'rgba(52, 211, 153, 0.3)' : 'rgba(251, 191, 36, 0.3)'}`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
@@ -131,236 +170,170 @@ const Detail: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span
                   style={{
-                    background: '#ffffff',
-                    color: '#2563eb',
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    color: '#c4b5fd',
                     fontSize: '0.78rem',
                     fontWeight: 700,
-                    padding: '4px 10px',
-                    borderRadius: '8px',
-                    border: '1px solid #bfdbfe',
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+                    padding: '4px 12px',
+                    borderRadius: '9999px',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    backdropFilter: 'blur(8px)',
                   }}
                 >
-                  <IonIcon icon={businessOutline} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
+                  <IonIcon icon={businessOutline} style={{ marginRight: '5px', verticalAlign: 'middle' }} />
                   {laporan.kategori}
                 </span>
               </div>
 
               {isCompleted ? (
-                <div
-                  style={{
-                    background: '#10b981',
-                    color: '#ffffff',
-                    fontWeight: 700,
-                    fontSize: '0.8rem',
-                    padding: '5px 14px',
-                    borderRadius: '20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    boxShadow: '0 2px 8px rgba(16, 185, 129, 0.35)',
-                  }}
-                >
-                  <IonIcon icon={checkmarkCircleOutline} />
-                  Selesai
+                <div className="liquid-badge-completed">
+                  <IonIcon icon={checkmarkCircleOutline} /> Selesai Ditangani
                 </div>
               ) : (
-                <div
-                  style={{
-                    background: '#f59e0b',
-                    color: '#ffffff',
-                    fontWeight: 700,
-                    fontSize: '0.8rem',
-                    padding: '5px 14px',
-                    borderRadius: '20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    boxShadow: '0 2px 8px rgba(245, 158, 11, 0.35)',
-                  }}
-                >
-                  <span className="bs-pulse-dot" style={{ backgroundColor: '#ffffff' }} />
-                  {laporan.status || 'Dalam Proses'}
+                <div className="liquid-badge-pending">
+                  <span className="liquid-pulse-dot" /> Sedang Diproses
                 </div>
               )}
             </div>
 
             <IonCardContent style={{ padding: '24px' }}>
-              {/* Location Title */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                <IonIcon icon={locationOutline} style={{ color: '#3b82f6', fontSize: '1.4rem' }} />
-                <h1 style={{ margin: 0, fontWeight: 800, fontSize: '1.6rem', color: '#0f172a', letterSpacing: '-0.3px' }}>
-                  {laporan.lokasi}
-                </h1>
-              </div>
-
-              {/* Meta Chips */}
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                  gap: '12px',
-                  background: '#f8fafc',
-                  padding: '14px 16px',
-                  borderRadius: '12px',
-                  border: '1px solid #f1f5f9',
-                  margin: '18px 0 22px 0',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <div
-                    style={{
-                      width: '32px',
-                      height: '32px',
-                      borderRadius: '8px',
-                      background: '#eff6ff',
-                      color: '#3b82f6',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <IonIcon icon={personOutline} />
-                  </div>
-                  <div>
-                    <span style={{ display: 'block', fontSize: '0.72rem', color: '#94a3b8', fontWeight: 600 }}>PELAPOR</span>
-                    <strong style={{ fontSize: '0.88rem', color: '#1e293b' }}>
-                      {laporan.nama_pelapor || laporan.nama || 'Anonim'}
-                    </strong>
-                  </div>
+              {/* Lokasi Ruangan */}
+              <div style={{ marginBottom: '22px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a855f7', marginBottom: '6px' }}>
+                  <IonIcon icon={locationOutline} style={{ fontSize: '1.2rem' }} />
+                  <span style={{ fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.6px' }}>
+                    Lokasi / Ruangan
+                  </span>
                 </div>
-
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <div
-                    style={{
-                      width: '32px',
-                      height: '32px',
-                      borderRadius: '8px',
-                      background: '#f0fdf4',
-                      color: '#16a34a',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <IonIcon icon={calendarOutline} />
-                  </div>
-                  <div>
-                    <span style={{ display: 'block', fontSize: '0.72rem', color: '#94a3b8', fontWeight: 600 }}>TANGGAL MASUK</span>
-                    <strong style={{ fontSize: '0.88rem', color: '#1e293b' }}>
-                      {laporan.created_at
-                        ? new Date(laporan.created_at).toLocaleDateString('id-ID', {
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric',
-                          })
-                        : laporan.tanggal || '-'}
-                    </strong>
-                  </div>
-                </div>
-              </div>
-
-              {/* Problem Description */}
-              <div style={{ marginBottom: '28px' }}>
-                <span
+                <h2
                   style={{
-                    display: 'block',
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    color: '#64748b',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                    marginBottom: '8px',
+                    margin: 0,
+                    fontSize: '1.45rem',
+                    fontWeight: 800,
+                    color: '#ffffff',
+                    letterSpacing: '-0.3px',
+                    fontFamily: "'Outfit', sans-serif",
                   }}
                 >
-                  Rincian Kerusakan Fasilitas
-                </span>
+                  {laporan.lokasi}
+                </h2>
+              </div>
+
+              {/* Rincian Masalah */}
+              <div style={{ marginBottom: '24px' }}>
+                <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: '8px' }}>
+                  Deskripsi Kerusakan
+                </label>
                 <div
                   style={{
-                    background: '#ffffff',
-                    border: '1.5px solid #e2e8f0',
-                    borderRadius: '12px',
-                    padding: '16px 18px',
-                    color: '#334155',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    padding: '16px',
+                    borderRadius: '14px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    color: '#e2e8f0',
                     fontSize: '0.94rem',
                     lineHeight: '1.6',
-                    boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.02)',
+                    backdropFilter: 'blur(10px)',
                   }}
                 >
                   {laporan.deskripsi}
                 </div>
               </div>
 
-              {/* Action Area based on Role */}
-              {isCompleted ? (
-                <div
-                  style={{
-                    textAlign: 'center',
-                    padding: '16px',
-                    background: '#f0fdf4',
-                    border: '1.5px solid #bbf7d0',
-                    color: '#166534',
-                    borderRadius: '12px',
-                    fontWeight: 700,
-                    fontSize: '0.92rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                  }}
-                >
-                  <IonIcon icon={checkmarkCircleOutline} style={{ fontSize: '1.4rem' }} />
-                  Laporan Ini Telah Ditangani & Dinyatakan Selesai
-                </div>
-              ) : role === 'petugas' ? (
+              {/* Info Pelapor & Waktu */}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: '12px',
+                  background: 'rgba(99, 102, 241, 0.1)',
+                  padding: '14px 18px',
+                  borderRadius: '14px',
+                  border: '1px solid rgba(165, 180, 252, 0.2)',
+                  marginBottom: '24px',
+                  backdropFilter: 'blur(8px)',
+                }}
+              >
                 <div>
-                  <IonButton
-                    expand="block"
-                    color="success"
-                    onClick={handleSelesai}
-                    disabled={loading}
-                    style={{
-                      height: '50px',
-                      margin: 0,
-                      fontWeight: 800,
-                      fontSize: '0.95rem',
-                      letterSpacing: '0.5px',
-                      '--border-radius': '12px',
-                      '--box-shadow': '0 8px 20px rgba(16, 185, 129, 0.35)',
-                    }}
-                  >
-                    {loading ? (
-                      <IonSpinner name="crescent" color="light" />
-                    ) : (
-                      <>
-                        <IonIcon slot="start" icon={checkmarkCircleOutline} style={{ fontSize: '1.3rem' }} />
-                        TANDAI LAPORAN SELESAI
-                      </>
-                    )}
-                  </IonButton>
-                  <span style={{ display: 'block', textAlign: 'center', fontSize: '0.75rem', color: '#94a3b8', marginTop: '8px' }}>
-                    *Aksi ini akan memperbarui status di database server dan memberitahu pelapor.
-                  </span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#a5b4fc', fontSize: '0.74rem', fontWeight: 700, textTransform: 'uppercase' }}>
+                    <IonIcon icon={personOutline} /> Pelapor
+                  </div>
+                  <div style={{ fontWeight: 800, color: '#ffffff', fontSize: '0.94rem', marginTop: '3px' }}>
+                    {laporan.nama_pelapor || laporan.nama || 'Anonim'}
+                  </div>
+                </div>
+
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#a5b4fc', fontSize: '0.74rem', fontWeight: 700, textTransform: 'uppercase' }}>
+                    <IonIcon icon={calendarOutline} /> Tanggal Masuk
+                  </div>
+                  <div style={{ fontWeight: 800, color: '#ffffff', fontSize: '0.94rem', marginTop: '3px' }}>
+                    {laporan.created_at
+                      ? new Date(laporan.created_at).toLocaleDateString('id-ID', {
+                          day: 'numeric',
+                          month: 'long',
+                          year: 'numeric',
+                        })
+                      : laporan.tanggal || '-'}
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons for Sarpras / Petugas */}
+              {role === 'petugas' ? (
+                <div>
+                  {!isCompleted ? (
+                    <IonButton
+                      expand="block"
+                      onClick={handleSelesai}
+                      disabled={loading}
+                      className="liquid-btn-primary"
+                      style={{
+                        height: '48px',
+                        fontSize: '0.94rem',
+                      }}
+                    >
+                      {loading ? (
+                        <IonSpinner name="crescent" color="light" />
+                      ) : (
+                        <>
+                          <IonIcon slot="start" icon={checkmarkCircleOutline} />
+                          Tandai Penanganan Selesai
+                        </>
+                      )}
+                    </IonButton>
+                  ) : (
+                    <div
+                      style={{
+                        textAlign: 'center',
+                        padding: '12px',
+                        background: 'rgba(16, 185, 129, 0.15)',
+                        borderRadius: '9999px',
+                        color: '#34d399',
+                        fontWeight: 700,
+                        fontSize: '0.85rem',
+                        border: '1px solid rgba(52, 211, 153, 0.35)',
+                        backdropFilter: 'blur(8px)',
+                      }}
+                    >
+                      <IonIcon icon={informationCircleOutline} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
+                      Laporan ini telah selesai diverifikasi oleh Petugas Sarpras
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div
                   style={{
                     textAlign: 'center',
-                    padding: '14px 18px',
-                    background: '#fffbeb',
-                    border: '1px solid #fde68a',
-                    color: '#b45309',
-                    borderRadius: '12px',
-                    fontSize: '0.85rem',
-                    fontWeight: 600,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '6px',
+                    padding: '12px',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    borderRadius: '9999px',
+                    color: '#94a3b8',
+                    fontSize: '0.82rem',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
                   }}
                 >
-                  <IonIcon icon={informationCircleOutline} style={{ fontSize: '1.2rem' }} />
-                  Laporan sedang dalam antrean penanganan oleh Tim Sarpras SMKN 1 Beringin.
+                  Status penanganan dipantau secara langsung oleh Petugas Sarpras
                 </div>
               )}
             </IonCardContent>
