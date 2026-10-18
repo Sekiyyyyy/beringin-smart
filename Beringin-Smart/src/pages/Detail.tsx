@@ -67,39 +67,33 @@ const Detail: React.FC = () => {
     return (
       <IonPage>
         <IonHeader className="ion-no-border">
-          <IonToolbar style={{ '--background': 'rgba(8, 12, 20, 0.8)', '--color': '#ffffff' } as React.CSSProperties}>
+          <IonToolbar style={{ '--background': 'rgba(255, 255, 255, 0.9)', '--color': '#0f172a', borderBottom: '1px solid #e2e8f0' } as React.CSSProperties}>
             <IonButtons slot="start">
-              <IonBackButton defaultHref="/home" text="Kembali" color="light" />
+              <IonBackButton defaultHref="/home" text="Kembali" color="dark" />
             </IonButtons>
             <IonTitle style={{ fontWeight: 800, fontFamily: "'Outfit', sans-serif" }}>Rincian Tiket Laporan</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent
           className="ion-padding ion-text-center"
-          style={{
-            '--background': `
-              radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
-              #080c14
-            `,
-          } as React.CSSProperties}
+          style={{ '--background': '#f8fafc' } as React.CSSProperties}
         >
           <div
             style={{
               maxWidth: '400px',
               margin: '60px auto',
               padding: '32px',
-              background: 'rgba(15, 23, 42, 0.65)',
+              background: '#ffffff',
               borderRadius: '20px',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              backdropFilter: 'blur(20px)',
-              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
+              border: '1px solid #e2e8f0',
+              boxShadow: '0 10px 25px rgba(15, 23, 42, 0.05)',
             }}
           >
-            <IonIcon icon={alertCircleOutline} style={{ fontSize: '3.2rem', color: '#fbbf24', marginBottom: '14px' }} />
-            <h3 style={{ margin: '0 0 6px 0', fontWeight: 800, color: '#ffffff', fontFamily: "'Outfit', sans-serif" }}>
+            <IonIcon icon={alertCircleOutline} style={{ fontSize: '3.2rem', color: '#f59e0b', marginBottom: '14px' }} />
+            <h3 style={{ margin: '0 0 6px 0', fontWeight: 800, color: '#0f172a', fontFamily: "'Outfit', sans-serif" }}>
               Data Tidak Ditemukan
             </h3>
-            <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.9rem' }}>
+            <p style={{ margin: 0, color: '#64748b', fontSize: '0.9rem' }}>
               Tiket pengaduan yang Anda cari tidak tersedia atau telah dihapus.
             </p>
           </div>
@@ -112,18 +106,18 @@ const Detail: React.FC = () => {
 
   return (
     <IonPage>
-      {/* Translucent Liquid Glass Header */}
+      {/* Light Mode Liquid Glass Header */}
       <IonHeader className="ion-no-border">
         <IonToolbar
           style={{
-            '--background': 'rgba(8, 12, 20, 0.8)',
-            '--color': '#ffffff',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-            backdropFilter: 'blur(24px)',
+            '--background': 'rgba(255, 255, 255, 0.9)',
+            '--color': '#0f172a',
+            borderBottom: '1px solid #e2e8f0',
+            backdropFilter: 'blur(20px)',
           } as React.CSSProperties}
         >
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/home" text="KEMBALI" color="light" />
+            <IonBackButton defaultHref="/home" text="KEMBALI" color="dark" />
           </IonButtons>
           <IonTitle style={{ fontWeight: 800, letterSpacing: '-0.3px', fontSize: '1.05rem', fontFamily: "'Outfit', sans-serif" }}>
             Rincian Tiket #{laporan.id}
@@ -133,35 +127,28 @@ const Detail: React.FC = () => {
 
       <IonContent
         className="ion-padding"
-        style={{
-          '--background': `
-            radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.22) 0%, transparent 45%),
-            radial-gradient(circle at 85% 20%, rgba(236, 72, 153, 0.18) 0%, transparent 40%),
-            #080c14
-          `,
-        } as React.CSSProperties}
+        style={{ '--background': '#f8fafc' } as React.CSSProperties}
       >
         <div style={{ maxWidth: '640px', margin: '24px auto' }}>
-          {/* Liquid Glass Main Card */}
+          {/* Light Mode Liquid Glass Main Card */}
           <IonCard
             style={{
               margin: 0,
-              borderRadius: '24px',
-              boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-              border: '1px solid rgba(255, 255, 255, 0.14)',
+              borderRadius: '22px',
+              boxShadow: '0 15px 35px -5px rgba(15, 23, 42, 0.06)',
+              border: '1px solid #e2e8f0',
               overflow: 'hidden',
-              background: 'rgba(15, 23, 42, 0.65)',
-              backdropFilter: 'blur(24px) saturate(180%)',
+              background: '#ffffff',
             }}
           >
             {/* Top Status Banner */}
             <div
               style={{
                 background: isCompleted
-                  ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)'
-                  : 'linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(239, 68, 68, 0.2) 100%)',
+                  ? 'linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)'
+                  : 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
                 padding: '16px 22px',
-                borderBottom: `1px solid ${isCompleted ? 'rgba(52, 211, 153, 0.3)' : 'rgba(251, 191, 36, 0.3)'}`,
+                borderBottom: `1px solid ${isCompleted ? '#a7f3d0' : '#fde68a'}`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
@@ -170,14 +157,14 @@ const Detail: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span
                   style={{
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    color: '#c4b5fd',
+                    background: '#ffffff',
+                    color: '#4f46e5',
                     fontSize: '0.78rem',
                     fontWeight: 700,
                     padding: '4px 12px',
                     borderRadius: '9999px',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    backdropFilter: 'blur(8px)',
+                    border: '1px solid #c7d2fe',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
                   }}
                 >
                   <IonIcon icon={businessOutline} style={{ marginRight: '5px', verticalAlign: 'middle' }} />
@@ -199,7 +186,7 @@ const Detail: React.FC = () => {
             <IonCardContent style={{ padding: '24px' }}>
               {/* Lokasi Ruangan */}
               <div style={{ marginBottom: '22px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a855f7', marginBottom: '6px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#4f46e5', marginBottom: '6px' }}>
                   <IonIcon icon={locationOutline} style={{ fontSize: '1.2rem' }} />
                   <span style={{ fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.6px' }}>
                     Lokasi / Ruangan
@@ -210,7 +197,7 @@ const Detail: React.FC = () => {
                     margin: 0,
                     fontSize: '1.45rem',
                     fontWeight: 800,
-                    color: '#ffffff',
+                    color: '#0f172a',
                     letterSpacing: '-0.3px',
                     fontFamily: "'Outfit', sans-serif",
                   }}
@@ -221,19 +208,18 @@ const Detail: React.FC = () => {
 
               {/* Rincian Masalah */}
               <div style={{ marginBottom: '24px' }}>
-                <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: '8px' }}>
+                <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: '8px' }}>
                   Deskripsi Kerusakan
                 </label>
                 <div
                   style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
+                    background: '#f8fafc',
                     padding: '16px',
                     borderRadius: '14px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    color: '#e2e8f0',
+                    border: '1px solid #e2e8f0',
+                    color: '#1e293b',
                     fontSize: '0.94rem',
                     lineHeight: '1.6',
-                    backdropFilter: 'blur(10px)',
                   }}
                 >
                   {laporan.deskripsi}
@@ -246,28 +232,27 @@ const Detail: React.FC = () => {
                   display: 'grid',
                   gridTemplateColumns: '1fr 1fr',
                   gap: '12px',
-                  background: 'rgba(99, 102, 241, 0.1)',
+                  background: '#f1f5f9',
                   padding: '14px 18px',
                   borderRadius: '14px',
-                  border: '1px solid rgba(165, 180, 252, 0.2)',
+                  border: '1px solid #e2e8f0',
                   marginBottom: '24px',
-                  backdropFilter: 'blur(8px)',
                 }}
               >
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#a5b4fc', fontSize: '0.74rem', fontWeight: 700, textTransform: 'uppercase' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#64748b', fontSize: '0.74rem', fontWeight: 700, textTransform: 'uppercase' }}>
                     <IonIcon icon={personOutline} /> Pelapor
                   </div>
-                  <div style={{ fontWeight: 800, color: '#ffffff', fontSize: '0.94rem', marginTop: '3px' }}>
+                  <div style={{ fontWeight: 800, color: '#0f172a', fontSize: '0.94rem', marginTop: '3px' }}>
                     {laporan.nama_pelapor || laporan.nama || 'Anonim'}
                   </div>
                 </div>
 
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#a5b4fc', fontSize: '0.74rem', fontWeight: 700, textTransform: 'uppercase' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#64748b', fontSize: '0.74rem', fontWeight: 700, textTransform: 'uppercase' }}>
                     <IonIcon icon={calendarOutline} /> Tanggal Masuk
                   </div>
-                  <div style={{ fontWeight: 800, color: '#ffffff', fontSize: '0.94rem', marginTop: '3px' }}>
+                  <div style={{ fontWeight: 800, color: '#0f172a', fontSize: '0.94rem', marginTop: '3px' }}>
                     {laporan.created_at
                       ? new Date(laporan.created_at).toLocaleDateString('id-ID', {
                           day: 'numeric',
@@ -307,13 +292,12 @@ const Detail: React.FC = () => {
                       style={{
                         textAlign: 'center',
                         padding: '12px',
-                        background: 'rgba(16, 185, 129, 0.15)',
+                        background: '#ecfdf5',
                         borderRadius: '9999px',
-                        color: '#34d399',
+                        color: '#047857',
                         fontWeight: 700,
                         fontSize: '0.85rem',
-                        border: '1px solid rgba(52, 211, 153, 0.35)',
-                        backdropFilter: 'blur(8px)',
+                        border: '1px solid #a7f3d0',
                       }}
                     >
                       <IonIcon icon={informationCircleOutline} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
@@ -326,11 +310,11 @@ const Detail: React.FC = () => {
                   style={{
                     textAlign: 'center',
                     padding: '12px',
-                    background: 'rgba(255, 255, 255, 0.05)',
+                    background: '#f8fafc',
                     borderRadius: '9999px',
-                    color: '#94a3b8',
+                    color: '#64748b',
                     fontSize: '0.82rem',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    border: '1px solid #e2e8f0',
                   }}
                 >
                   Status penanganan dipantau secara langsung oleh Petugas Sarpras

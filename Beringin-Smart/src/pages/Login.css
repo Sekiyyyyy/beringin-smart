@@ -1,7 +1,7 @@
-/* Login.css - Authentic Liquid Glass Edition (Apple VisionOS / 21st.dev Style) */
+/* Login.css - Light Mode Liquid Glass Edition (Apple / 21st.dev Style) */
 
 .login-page-content {
-  --background: #080c16;
+  --background: #f8fafc;
   position: relative;
   display: flex;
   align-items: center;
@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-/* Subtle, sophisticated ambient liquid shapes in background that provide true glass refraction */
+/* Ambient Liquid Pastel Orbs in Background for True Glass Refraction */
 .login-bg-refraction {
   position: fixed;
   inset: 0;
@@ -20,67 +20,62 @@
 
 .login-liquid-orb-1 {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 480px;
+  height: 480px;
   border-radius: 50%;
-  top: 10%;
-  left: 20%;
-  background: radial-gradient(circle, rgba(67, 56, 202, 0.38) 0%, rgba(30, 27, 75, 0.15) 55%, transparent 70%);
-  filter: blur(60px);
+  top: 8%;
+  left: 18%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.16) 0%, rgba(199, 210, 254, 0.1) 50%, transparent 70%);
+  filter: blur(50px);
 }
 
 .login-liquid-orb-2 {
   position: absolute;
-  width: 450px;
-  height: 450px;
+  width: 440px;
+  height: 440px;
   border-radius: 50%;
-  bottom: 10%;
-  right: 18%;
-  background: radial-gradient(circle, rgba(14, 116, 144, 0.32) 0%, rgba(15, 23, 42, 0.15) 55%, transparent 70%);
-  filter: blur(60px);
+  bottom: 8%;
+  right: 16%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.14) 0%, rgba(186, 230, 253, 0.1) 50%, transparent 70%);
+  filter: blur(50px);
 }
 
 .login-liquid-orb-3 {
   position: absolute;
-  width: 360px;
-  height: 360px;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
-  top: 48%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 65%);
-  filter: blur(45px);
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.12) 0%, transparent 60%);
+  filter: blur(40px);
 }
 
-/* Single Unified Liquid Glass Card */
+/* Single Unified Liquid Glass Card Container */
 .login-card-container {
   width: 100%;
-  max-width: 410px;
+  max-width: 400px;
   margin: auto;
   padding: 16px;
   position: relative;
   z-index: 2;
 }
 
+/* Light Mode Liquid Glass Card */
 .login-card {
   position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.14) 0%,
-    rgba(255, 255, 255, 0.04) 45%,
-    rgba(255, 255, 255, 0.08) 100%
-  ), rgba(15, 23, 42, 0.6);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(32px) saturate(190%);
   -webkit-backdrop-filter: blur(32px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-top: 1.5px solid rgba(255, 255, 255, 0.38);
-  border-left: 1.5px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-top: 1.5px solid #ffffff;
   border-radius: 24px;
   padding: 36px 30px 28px 30px;
   box-shadow: 
-    0 30px 60px -15px rgba(0, 0, 0, 0.75),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 0 24px 0 rgba(255, 255, 255, 0.03);
+    0 20px 45px -12px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.6),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 /* Header inside card */
@@ -96,14 +91,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-top: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-top: 1.5px solid #ffffff;
   border-radius: 20px;
   padding: 8px;
   box-shadow: 
-    0 10px 25px -5px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    0 8px 20px -4px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 #ffffff;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -112,14 +107,14 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
 }
 
 .login-title {
   margin: 0 0 4px 0;
   font-size: 1.55rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #0f172a;
   letter-spacing: -0.4px;
   font-family: 'Outfit', sans-serif !important;
 }
@@ -127,11 +122,11 @@
 .login-subtitle {
   margin: 0;
   font-size: 0.86rem;
-  color: #94a3b8;
+  color: #64748b;
   font-weight: 400;
 }
 
-/* Liquid Glass Form Fields */
+/* Light Mode Liquid Glass Form Fields */
 .login-field {
   margin-bottom: 18px;
 }
@@ -140,7 +135,7 @@
   display: block;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #cbd5e1;
+  color: #334155;
   margin-bottom: 6px;
   letter-spacing: 0.2px;
 }
@@ -148,45 +143,45 @@
 .login-field-input {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(203, 213, 225, 0.75);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 14px;
   padding: 0 14px;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: 
-    inset 0 1px 2px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    inset 0 1px 2px rgba(15, 23, 42, 0.03),
+    0 1px 0 rgba(255, 255, 255, 0.8);
   transition: all 0.2s ease;
 }
 
 .login-field-input:focus-within {
-  border-color: rgba(99, 102, 241, 0.6);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: #6366f1;
+  background: #ffffff;
   box-shadow: 
-    0 0 16px rgba(99, 102, 241, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 0 0 3px rgba(99, 102, 241, 0.12),
+    inset 0 1px 2px rgba(15, 23, 42, 0.03);
 }
 
 .login-field-input ion-icon {
   font-size: 1.15rem;
-  color: #818cf8;
+  color: #6366f1;
   margin-right: 10px;
   flex-shrink: 0;
 }
 
 .login-field-input ion-input {
-  --color: #ffffff;
-  --placeholder-color: #64748b;
-  --placeholder-opacity: 0.8;
+  --color: #0f172a;
+  --placeholder-color: #94a3b8;
+  --placeholder-opacity: 0.9;
   font-size: 0.92rem;
 }
 
 .login-toggle-eye {
   background: transparent;
   border: none;
-  color: #94a3b8;
+  color: #64748b;
   cursor: pointer;
   padding: 6px;
   display: flex;
@@ -197,23 +192,23 @@
 }
 
 .login-toggle-eye:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
+  color: #0f172a;
+  background: rgba(15, 23, 42, 0.04);
 }
 
-/* Liquid Glass Submit Button */
+/* Light Mode Liquid Glass Submit Button */
 .login-submit-btn {
   width: 100%;
   height: 48px;
   margin-top: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-top: 1.5px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.5);
   border-radius: 14px;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.22) 0%,
     rgba(255, 255, 255, 0.02) 60%,
-    rgba(255, 255, 255, 0.08) 100%
+    rgba(255, 255, 255, 0.06) 100%
   ), #4f46e5;
   color: #ffffff;
   font-weight: 700;
@@ -224,8 +219,8 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 
-    0 12px 28px -6px rgba(79, 70, 229, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    0 10px 24px -5px rgba(79, 70, 229, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -234,12 +229,12 @@
     180deg,
     rgba(255, 255, 255, 0.28) 0%,
     rgba(255, 255, 255, 0.04) 60%,
-    rgba(255, 255, 255, 0.1) 100%
+    rgba(255, 255, 255, 0.08) 100%
   ), #4338ca;
   transform: translateY(-2px);
   box-shadow: 
-    0 16px 32px -4px rgba(79, 70, 229, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    0 14px 28px -4px rgba(79, 70, 229, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .login-submit-btn:active:not(:disabled) {
@@ -255,9 +250,9 @@
 .login-card-footer {
   margin-top: 24px;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
   text-align: center;
   font-size: 0.74rem;
-  color: #64748b;
+  color: #94a3b8;
   letter-spacing: 0.2px;
 }
