@@ -25,9 +25,9 @@
   border-radius: 50%;
   top: 6%;
   left: 15%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.45) 0%, rgba(168, 85, 247, 0.25) 50%, transparent 70%);
-  filter: blur(55px);
-  animation: liquidMeshFloat 12s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, rgba(129, 140, 248, 0.12) 50%, transparent 70%);
+  filter: blur(65px);
+  animation: liquidMeshFloat 14s ease-in-out infinite alternate;
 }
 
 .login-liquid-orb-2 {
@@ -37,9 +37,9 @@
   border-radius: 50%;
   bottom: 6%;
   right: 12%;
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.4) 0%, rgba(56, 189, 248, 0.25) 50%, transparent 70%);
-  filter: blur(55px);
-  animation: liquidMeshFloat 14s ease-in-out infinite alternate -4s;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, rgba(147, 197, 253, 0.10) 50%, transparent 70%);
+  filter: blur(65px);
+  animation: liquidMeshFloat 16s ease-in-out infinite alternate -5s;
 }
 
 .login-liquid-orb-3 {
@@ -50,9 +50,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(244, 114, 182, 0.3) 0%, transparent 65%);
-  filter: blur(45px);
-  animation: liquidMeshFloat 16s ease-in-out infinite alternate -8s;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 65%);
+  filter: blur(55px);
+  animation: liquidMeshFloat 18s ease-in-out infinite alternate -9s;
 }
 
 @keyframes liquidMeshFloat {

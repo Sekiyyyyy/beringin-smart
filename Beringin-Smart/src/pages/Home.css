@@ -139,7 +139,7 @@
   height: 36px;
 }
 
-/* Ambient Floating Liquid Mesh Canvas in Background */
+/* Ambient Floating Liquid Mesh Canvas in Background (Calm Soft Palette, Not Rainbow) */
 .home-liquid-canvas {
   position: fixed;
   inset: 0;
@@ -151,56 +151,51 @@
 .liquid-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(65px);
-  opacity: 0.48;
-  animation: liquidMeshFloat 14s ease-in-out infinite alternate;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: liquidMeshFloat 16s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
 .blob-1 {
-  top: -40px;
+  top: -60px;
   left: -40px;
-  width: 380px;
-  height: 380px;
-  background: radial-gradient(circle, #818cf8 0%, #c084fc 60%, transparent 80%);
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, rgba(129, 140, 248, 0.12) 55%, transparent 75%);
 }
 
 .blob-2 {
-  top: 25%;
-  right: -60px;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, #38bdf8 0%, #818cf8 60%, transparent 80%);
-  animation-delay: -5s;
+  top: 30%;
+  right: -80px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, rgba(147, 197, 253, 0.10) 55%, transparent 75%);
+  animation-delay: -6s;
 }
 
 .blob-3 {
-  bottom: 12%;
-  left: 8%;
-  width: 360px;
-  height: 360px;
-  background: radial-gradient(circle, #f472b6 0%, #fb923c 55%, transparent 75%);
-  animation-delay: -9s;
+  bottom: 8%;
+  left: 12%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(199, 210, 254, 0.08) 60%, transparent 75%);
+  animation-delay: -10s;
 }
 
 .blob-4 {
-  bottom: -50px;
-  right: 18%;
-  width: 330px;
-  height: 330px;
-  background: radial-gradient(circle, #34d399 0%, #06b6d4 60%, transparent 80%);
-  animation-delay: -12s;
+  display: none;
 }
 
 @keyframes liquidMeshFloat {
   0% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
+    transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translate(35px, 25px) scale(1.08) rotate(15deg);
+    transform: translate(25px, 20px) scale(1.05);
   }
   100% {
-    transform: translate(-25px, 40px) scale(0.95) rotate(-10deg);
+    transform: translate(-18px, 30px) scale(0.96);
   }
 }
 
@@ -424,6 +419,50 @@
   box-shadow: 
     0 12px 32px -4px rgba(99, 102, 241, 0.08),
     inset 0 1px 1.5px 0 #ffffff !important;
+}
+
+/* Liquid Search Bar - Smooth Rounded Capsule / Pill (No Square/Kotak) */
+.liquid-searchbar {
+  --background: transparent !important;
+  --color: #0f172a !important;
+  --placeholder-color: #94a3b8 !important;
+  --icon-color: #6366f1 !important;
+  --border-radius: 9999px !important;
+  --box-shadow: none !important;
+  padding: 0 !important;
+  margin-top: 4px !important;
+  margin-bottom: 6px !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.liquid-searchbar .searchbar-input-container {
+  border-radius: 9999px !important;
+  border: 1.5px solid rgba(203, 213, 225, 0.85) !important;
+  border-top: 1.5px solid #ffffff !important;
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.02) !important;
+  height: 44px !important;
+  overflow: hidden !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.liquid-searchbar.searchbar-has-focus .searchbar-input-container {
+  border-color: #6366f1 !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12), 0 4px 12px rgba(99, 102, 241, 0.08) !important;
+}
+
+.liquid-searchbar input.searchbar-input {
+  border-radius: 9999px !important;
+  font-size: 0.88rem !important;
+  padding-left: 42px !important;
+  padding-right: 14px !important;
+  font-family: inherit !important;
+  color: #0f172a !important;
 }
 
 /* Liquid Ticket Items in Feed */

@@ -525,22 +525,13 @@ const Home: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Liquid Search Bar */}
+                {/* Liquid Search Bar (Smooth Rounded Pill Capsule) */}
                 <IonSearchbar
+                  mode="ios"
+                  className="liquid-searchbar"
                   value={searchQuery}
                   onIonInput={(e) => setSearchQuery(e.detail.value!)}
                   placeholder="Cari lokasi, kendala, atau nama..."
-                  style={{
-                    padding: 0,
-                    '--background': 'rgba(255, 255, 255, 0.75)',
-                    '--color': '#0f172a',
-                    '--placeholder-color': '#94a3b8',
-                    '--icon-color': '#6366f1',
-                    '--border-radius': '14px',
-                    '--box-shadow': 'none',
-                    border: '1px solid rgba(255, 255, 255, 0.9)',
-                    backdropFilter: 'blur(16px)',
-                  } as React.CSSProperties}
                 />
 
                 {/* Filter Kategori Scrollable */}
