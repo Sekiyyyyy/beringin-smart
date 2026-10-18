@@ -1,0 +1,32 @@
+# Dependencies
+**/node_modules/
+**/vendor/
+
+# Environment files
+**/.env
+**/.env.backup
+**/.env.production
+!**/.env.example
+
+# Build / Output
+**/dist/
+**/build/
+**/public/build/
+**/public/hot
+**/public/storage
+
+# Testing & Cache
+**/coverage/
+**/.phpunit.cache/
+**/.nx/cache/
+**/.eslintcache
+**/.phpunit.result.cache
+
+# Logs & Temp
+*.log
+**/storage/logs/*.log
+**/storage/framework/cache/data/*
+**/storage/framework/sessions/*
+**/storage/framework/views/*
+.DS_Store
+Thumbs.db
