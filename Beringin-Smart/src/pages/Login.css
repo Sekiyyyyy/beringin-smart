@@ -23,10 +23,11 @@
   width: 480px;
   height: 480px;
   border-radius: 50%;
-  top: 8%;
-  left: 18%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.16) 0%, rgba(199, 210, 254, 0.1) 50%, transparent 70%);
-  filter: blur(50px);
+  top: 6%;
+  left: 15%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.45) 0%, rgba(168, 85, 247, 0.25) 50%, transparent 70%);
+  filter: blur(55px);
+  animation: liquidMeshFloat 12s ease-in-out infinite alternate;
 }
 
 .login-liquid-orb-2 {
@@ -34,22 +35,30 @@
   width: 440px;
   height: 440px;
   border-radius: 50%;
-  bottom: 8%;
-  right: 16%;
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.14) 0%, rgba(186, 230, 253, 0.1) 50%, transparent 70%);
-  filter: blur(50px);
+  bottom: 6%;
+  right: 12%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.4) 0%, rgba(56, 189, 248, 0.25) 50%, transparent 70%);
+  filter: blur(55px);
+  animation: liquidMeshFloat 14s ease-in-out infinite alternate -4s;
 }
 
 .login-liquid-orb-3 {
   position: absolute;
-  width: 320px;
-  height: 320px;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(129, 140, 248, 0.12) 0%, transparent 60%);
-  filter: blur(40px);
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.3) 0%, transparent 65%);
+  filter: blur(45px);
+  animation: liquidMeshFloat 16s ease-in-out infinite alternate -8s;
+}
+
+@keyframes liquidMeshFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 20px) scale(1.08); }
+  100% { transform: translate(-20px, 35px) scale(0.95); }
 }
 
 /* Single Unified Liquid Glass Card Container */
@@ -65,16 +74,16 @@
 /* Light Mode Liquid Glass Card */
 .login-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(32px) saturate(190%);
-  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
   border: 1px solid rgba(255, 255, 255, 0.85);
   border-top: 1.5px solid #ffffff;
   border-radius: 24px;
   padding: 36px 30px 28px 30px;
   box-shadow: 
-    0 20px 45px -12px rgba(15, 23, 42, 0.08),
-    0 0 0 1px rgba(255, 255, 255, 0.6),
+    0 20px 45px -12px rgba(99, 102, 241, 0.12),
+    0 4px 16px rgba(15, 23, 42, 0.04),
     inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95);
 }
 

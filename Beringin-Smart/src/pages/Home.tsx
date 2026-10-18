@@ -40,6 +40,7 @@ import {
   chevronForwardOutline,
   logOutOutline,
   syncOutline,
+  sparklesOutline,
   addCircleOutline,
   handRightOutline,
   funnelOutline,
@@ -199,9 +200,17 @@ const Home: React.FC = () => {
 
       <IonContent
         className="ion-padding"
-        style={{ '--background': '#f8fafc' } as React.CSSProperties}
+        style={{ '--background': '#f8fafc', position: 'relative' } as React.CSSProperties}
       >
-        <IonGrid fixed style={{ maxWidth: '1200px', padding: 0 }}>
+        {/* Ambient Floating Liquid Mesh Canvas in Background */}
+        <div className="home-liquid-canvas">
+          <div className="liquid-blob blob-1" />
+          <div className="liquid-blob blob-2" />
+          <div className="liquid-blob blob-3" />
+          <div className="liquid-blob blob-4" />
+        </div>
+
+        <IonGrid fixed style={{ maxWidth: '1200px', padding: 0, position: 'relative', zIndex: 1 }}>
           {/* Liquid Glass Hero Greeting Banner */}
           <div className="home-hero-greeting">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -225,14 +234,14 @@ const Home: React.FC = () => {
                 </p>
               </div>
 
-              {/* Clean Symmetrical Reload Button (No Gimmick) */}
+              {/* Sparkle Circle Button - Exactly 100% Round Circle */}
               <button
                 type="button"
                 onClick={() => refreshLaporan()}
-                className="btn-refresh-sync"
+                className="btn-sparkle-circle"
                 title="Segarkan Data Laporan"
               >
-                <IonIcon icon={syncOutline} />
+                <IonIcon icon={sparklesOutline} />
               </button>
             </div>
           </div>
@@ -241,15 +250,7 @@ const Home: React.FC = () => {
           <IonRow className="mobile-stats-row" style={{ marginBottom: '14px' }}>
             {/* Total Laporan */}
             <IonCol size="4">
-              <div
-                className="liquid-stat-card"
-                style={{
-                  background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
-                  padding: '12px 8px',
-                  textAlign: 'center',
-                  border: '1px solid #bae6fd',
-                }}
-              >
+              <div className="liquid-stat-card liquid-stat-total">
                 <div style={{ fontSize: '1.35rem', color: '#0284c7' }}>
                   <IonIcon icon={layersOutline} />
                 </div>
@@ -272,15 +273,7 @@ const Home: React.FC = () => {
 
             {/* Menunggu / Proses */}
             <IonCol size="4">
-              <div
-                className="liquid-stat-card"
-                style={{
-                  background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
-                  padding: '12px 8px',
-                  textAlign: 'center',
-                  border: '1px solid #fde68a',
-                }}
-              >
+              <div className="liquid-stat-card liquid-stat-pending">
                 <div style={{ fontSize: '1.35rem', color: '#d97706' }}>
                   <IonIcon icon={timeOutline} />
                 </div>
@@ -303,15 +296,7 @@ const Home: React.FC = () => {
 
             {/* Selesai */}
             <IonCol size="4">
-              <div
-                className="liquid-stat-card"
-                style={{
-                  background: 'linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)',
-                  padding: '12px 8px',
-                  textAlign: 'center',
-                  border: '1px solid #a7f3d0',
-                }}
-              >
+              <div className="liquid-stat-card liquid-stat-completed">
                 <div style={{ fontSize: '1.35rem', color: '#059669' }}>
                   <IonIcon icon={checkmarkCircleOutline} />
                 </div>
@@ -407,16 +392,7 @@ const Home: React.FC = () => {
                       <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#334155', marginBottom: '6px' }}>
                         Nama Pelapor
                       </label>
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          border: '1.5px solid #e2e8f0',
-                          borderRadius: '12px',
-                          padding: '0 12px',
-                          background: '#f8fafc',
-                        }}
-                      >
+                      <div className="liquid-glass-input">
                         <IonIcon icon={personOutline} style={{ color: '#6366f1', marginRight: '8px' }} />
                         <IonInput
                           placeholder="Masukkan nama lengkap Anda"
@@ -432,16 +408,7 @@ const Home: React.FC = () => {
                       <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#334155', marginBottom: '6px' }}>
                         Lokasi / Ruangan
                       </label>
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          border: '1.5px solid #e2e8f0',
-                          borderRadius: '12px',
-                          padding: '0 12px',
-                          background: '#f8fafc',
-                        }}
-                      >
+                      <div className="liquid-glass-input">
                         <IonIcon icon={locationOutline} style={{ color: '#6366f1', marginRight: '8px' }} />
                         <IonInput
                           placeholder="Contoh: Lab Komputer 2"
@@ -457,16 +424,7 @@ const Home: React.FC = () => {
                       <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#334155', marginBottom: '6px' }}>
                         Kategori Fasilitas
                       </label>
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          border: '1.5px solid #e2e8f0',
-                          borderRadius: '12px',
-                          padding: '0 12px',
-                          background: '#f8fafc',
-                        }}
-                      >
+                      <div className="liquid-glass-input">
                         <IonIcon icon={listOutline} style={{ color: '#6366f1', marginRight: '8px' }} />
                         <IonSelect
                           value={kategori}
@@ -486,14 +444,7 @@ const Home: React.FC = () => {
                       <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#334155', marginBottom: '6px' }}>
                         Detail Kerusakan
                       </label>
-                      <div
-                        style={{
-                          border: '1.5px solid #e2e8f0',
-                          borderRadius: '12px',
-                          padding: '4px 12px',
-                          background: '#f8fafc',
-                        }}
-                      >
+                      <div className="liquid-glass-input" style={{ padding: '6px 12px' }}>
                         <IonTextarea
                           rows={3}
                           placeholder="Jelaskan secara jelas kendala fasilitas yang ditemukan..."
@@ -535,9 +486,9 @@ const Home: React.FC = () => {
               sizeLg="7"
               className={activeTab !== 'daftar' ? 'ion-hide-lg-down' : ''}
             >
-              {/* Header Feed + Searchbar */}
-              <div style={{ marginBottom: '14px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              {/* Header Feed + Searchbar (Liquid Glass Container) */}
+              <div className="liquid-feed-card">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                   <div>
                     <h3
                       style={{
@@ -559,13 +510,14 @@ const Home: React.FC = () => {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '6px',
-                      background: '#ecfdf5',
+                      background: 'rgba(236, 253, 245, 0.85)',
                       border: '1px solid #a7f3d0',
                       padding: '4px 12px',
                       borderRadius: '9999px',
                       fontSize: '0.72rem',
                       fontWeight: 700,
                       color: '#047857',
+                      backdropFilter: 'blur(8px)',
                     }}
                   >
                     <span className="liquid-pulse-dot" style={{ backgroundColor: '#10b981' }} />
@@ -573,20 +525,21 @@ const Home: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Light Search Bar */}
+                {/* Liquid Search Bar */}
                 <IonSearchbar
                   value={searchQuery}
                   onIonInput={(e) => setSearchQuery(e.detail.value!)}
                   placeholder="Cari lokasi, kendala, atau nama..."
                   style={{
                     padding: 0,
-                    '--background': '#ffffff',
+                    '--background': 'rgba(255, 255, 255, 0.75)',
                     '--color': '#0f172a',
                     '--placeholder-color': '#94a3b8',
                     '--icon-color': '#6366f1',
-                    '--border-radius': '12px',
-                    '--box-shadow': '0 2px 6px rgba(15, 23, 42, 0.04)',
-                    border: '1px solid #e2e8f0',
+                    '--border-radius': '14px',
+                    '--box-shadow': 'none',
+                    border: '1px solid rgba(255, 255, 255, 0.9)',
+                    backdropFilter: 'blur(16px)',
                   } as React.CSSProperties}
                 />
 
@@ -622,12 +575,6 @@ const Home: React.FC = () => {
                       key={item.id}
                       className={`liquid-ticket-item ${item.status === 'Selesai' ? 'completed' : 'pending'}`}
                       onClick={() => router.push(`/detail/${item.id}`)}
-                      style={{
-                        background: '#ffffff',
-                        padding: '16px',
-                        border: '1px solid #e2e8f0',
-                        boxShadow: '0 2px 8px rgba(15, 23, 42, 0.03)',
-                      }}
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                         <div style={{ minWidth: 0, flex: 1 }}>

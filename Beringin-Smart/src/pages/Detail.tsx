@@ -127,18 +127,28 @@ const Detail: React.FC = () => {
 
       <IonContent
         className="ion-padding"
-        style={{ '--background': '#f8fafc' } as React.CSSProperties}
+        style={{ '--background': '#f8fafc', position: 'relative' } as React.CSSProperties}
       >
-        <div style={{ maxWidth: '640px', margin: '24px auto' }}>
+        {/* Ambient Floating Liquid Mesh Canvas */}
+        <div className="home-liquid-canvas">
+          <div className="liquid-blob blob-1" />
+          <div className="liquid-blob blob-2" />
+          <div className="liquid-blob blob-3" />
+        </div>
+
+        <div style={{ maxWidth: '640px', margin: '24px auto', position: 'relative', zIndex: 1 }}>
           {/* Light Mode Liquid Glass Main Card */}
           <IonCard
             style={{
               margin: 0,
-              borderRadius: '22px',
-              boxShadow: '0 15px 35px -5px rgba(15, 23, 42, 0.06)',
-              border: '1px solid #e2e8f0',
+              borderRadius: '24px',
+              boxShadow: '0 20px 45px -12px rgba(99, 102, 241, 0.12), inset 0 1.5px 1px #ffffff',
+              border: '1px solid rgba(255, 255, 255, 0.85)',
+              borderTop: '1.5px solid #ffffff',
               overflow: 'hidden',
-              background: '#ffffff',
+              background: 'rgba(255, 255, 255, 0.68)',
+              backdropFilter: 'blur(32px) saturate(200%)',
+              WebkitBackdropFilter: 'blur(32px) saturate(200%)',
             }}
           >
             {/* Top Status Banner */}
