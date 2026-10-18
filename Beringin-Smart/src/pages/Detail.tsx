@@ -127,7 +127,15 @@ const Detail: React.FC = () => {
 
       <IonContent
         className="ion-padding"
-        style={{ '--background': '#f8fafc', position: 'relative' } as React.CSSProperties}
+        style={{
+          '--background': `
+            radial-gradient(ellipse 70% 55% at 15% 15%, rgba(99, 102, 241, 0.16) 0%, transparent 70%),
+            radial-gradient(ellipse 65% 55% at 85% 25%, rgba(56, 189, 248, 0.16) 0%, transparent 70%),
+            radial-gradient(ellipse 60% 50% at 20% 85%, rgba(129, 140, 248, 0.12) 0%, transparent 70%),
+            #f1f5f9
+          `,
+          position: 'relative',
+        } as React.CSSProperties}
       >
         {/* Ambient Floating Liquid Mesh Canvas */}
         <div className="home-liquid-canvas">

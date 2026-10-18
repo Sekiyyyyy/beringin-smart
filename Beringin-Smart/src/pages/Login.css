@@ -1,7 +1,11 @@
 /* Login.css - Light Mode Liquid Glass Edition (Apple / 21st.dev Style) */
 
 .login-page-content {
-  --background: #f8fafc;
+  --background: 
+    radial-gradient(ellipse 70% 55% at 15% 15%, rgba(99, 102, 241, 0.16) 0%, transparent 70%),
+    radial-gradient(ellipse 65% 55% at 85% 25%, rgba(56, 189, 248, 0.16) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 20% 85%, rgba(129, 140, 248, 0.12) 0%, transparent 70%),
+    #f1f5f9;
   position: relative;
   display: flex;
   align-items: center;

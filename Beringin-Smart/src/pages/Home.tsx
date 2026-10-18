@@ -45,6 +45,8 @@ import {
   handRightOutline,
   funnelOutline,
   layersOutline,
+  searchOutline,
+  closeCircleOutline,
 } from 'ionicons/icons';
 import { useIonRouter } from '@ionic/react';
 import { LaporanContext } from '../context/LaporanContext';
@@ -200,14 +202,21 @@ const Home: React.FC = () => {
 
       <IonContent
         className="ion-padding"
-        style={{ '--background': '#f8fafc', position: 'relative' } as React.CSSProperties}
+        style={{
+          '--background': `
+            radial-gradient(ellipse 70% 55% at 15% 15%, rgba(99, 102, 241, 0.16) 0%, transparent 70%),
+            radial-gradient(ellipse 65% 55% at 85% 25%, rgba(56, 189, 248, 0.16) 0%, transparent 70%),
+            radial-gradient(ellipse 60% 50% at 20% 85%, rgba(129, 140, 248, 0.12) 0%, transparent 70%),
+            #f1f5f9
+          `,
+          position: 'relative',
+        } as React.CSSProperties}
       >
         {/* Ambient Floating Liquid Mesh Canvas in Background */}
         <div className="home-liquid-canvas">
           <div className="liquid-blob blob-1" />
           <div className="liquid-blob blob-2" />
           <div className="liquid-blob blob-3" />
-          <div className="liquid-blob blob-4" />
         </div>
 
         <IonGrid fixed style={{ maxWidth: '1200px', padding: 0, position: 'relative', zIndex: 1 }}>
@@ -227,7 +236,7 @@ const Home: React.FC = () => {
                   }}
                 >
                   Halo, {currentUser?.name ? currentUser.name.split(' ')[0] : 'Rizky'}
-                  <IonIcon icon={handRightOutline} style={{ color: '#f59e0b', fontSize: '1.2rem', marginLeft: '8px' }} />
+                  <span className="waving-hand" title="Halo! Melambai">👋</span>
                 </h2>
                 <p style={{ margin: '3px 0 0 0', fontSize: '0.82rem', color: '#64748b' }}>
                   {userRole === 'petugas' ? 'Pantau & tindak lanjuti laporan sarpras sekolah.' : 'Laporkan kendala fasilitas sekolah untuk tindak lanjut cepat.'}
@@ -525,14 +534,27 @@ const Home: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Liquid Search Bar (Smooth Rounded Pill Capsule) */}
-                <IonSearchbar
-                  mode="ios"
-                  className="liquid-searchbar"
-                  value={searchQuery}
-                  onIonInput={(e) => setSearchQuery(e.detail.value!)}
-                  placeholder="Cari lokasi, kendala, atau nama..."
-                />
+                {/* Custom Full-Width Liquid Search Bar (Smooth Rounded Pill Capsule) */}
+                <div className="liquid-custom-search">
+                  <IonIcon icon={searchOutline} className="liquid-custom-search-icon" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Cari lokasi, kendala, atau nama..."
+                    className="liquid-custom-search-input"
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery('')}
+                      className="liquid-custom-search-clear"
+                      title="Hapus pencarian"
+                    >
+                      <IonIcon icon={closeCircleOutline} />
+                    </button>
+                  )}
+                </div>
 
                 {/* Filter Kategori Scrollable */}
                 <div className="category-filter-scroll">
