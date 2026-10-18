@@ -3,9 +3,6 @@ import {
   IonContent,
   IonPage,
   IonInput,
-  IonButton,
-  IonCard,
-  IonCardContent,
   IonToast,
   IonSpinner,
   IonIcon,
@@ -16,16 +13,21 @@ import {
   sparklesOutline,
   arrowForwardOutline,
   shieldCheckmarkOutline,
+  eyeOutline,
+  eyeOffOutline,
+  lockOpenOutline,
 } from 'ionicons/icons';
 import API from '../services/api';
+import './Login.css';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Jika sudah memiliki sesi login, langsung arahkan ke Home
+  // Jika sudah memiliki sesi login aktif, langsung arahkan ke Home
   useEffect(() => {
     if (localStorage.getItem('token')) {
       window.location.href = '/home';
@@ -60,139 +62,85 @@ const Login: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent
-        className="ion-padding"
-        style={{
-          '--background': `
-            radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.28) 0%, transparent 45%),
-            radial-gradient(circle at 85% 25%, rgba(236, 72, 153, 0.22) 0%, transparent 40%),
-            radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.2) 0%, transparent 50%),
-            #080c14
-          `,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        } as React.CSSProperties}
-      >
-        <div style={{ maxWidth: '440px', margin: '40px auto 20px auto' }}>
+      <IonContent className="login-page-content ion-padding">
+        {/* Ambient Liquid Canvas Background (21st.dev style) */}
+        <div className="login-ambient-mesh">
+          <div className="login-blob-1" />
+          <div className="login-blob-2" />
+          <div className="login-blob-3" />
+        </div>
+
+        {/* Central Content Container */}
+        <div
+          style={{
+            position: 'relative',
+            zIndex: 1,
+            maxWidth: '430px',
+            margin: '40px auto 30px auto',
+          }}
+        >
           {/* Logo & Hero Branding */}
-          <div style={{ textAlign: 'center', marginBottom: '26px' }}>
-            <div
-              style={{
-                width: '76px',
-                height: '76px',
-                margin: '0 auto 16px auto',
-                background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)',
-                borderRadius: '24px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 0 30px rgba(168, 85, 247, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
-                border: '1.5px solid rgba(255, 255, 255, 0.3)',
-              }}
-            >
+          <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+            {/* Holographic 3D Glass Hero Badge */}
+            <div className="login-hero-logo">
               <IonIcon icon={sparklesOutline} style={{ fontSize: '2.5rem', color: '#ffffff' }} />
             </div>
 
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '5px 16px',
-                background: 'rgba(255, 255, 255, 0.08)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(255, 255, 255, 0.18)',
-                borderRadius: '9999px',
-                color: '#c4b5fd',
-                fontSize: '0.78rem',
-                fontWeight: 700,
-                letterSpacing: '0.8px',
-                textTransform: 'uppercase',
-                marginBottom: '10px',
-                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-              }}
-            >
-              <IonIcon icon={shieldCheckmarkOutline} /> SMKN 1 BERINGIN • PPLG
+            {/* Live School Status Tag */}
+            <div className="login-school-tag">
+              <span
+                style={{
+                  width: '7px',
+                  height: '7px',
+                  borderRadius: '50%',
+                  backgroundColor: '#10b981',
+                  boxShadow: '0 0 10px #10b981',
+                  display: 'inline-block',
+                }}
+              />
+              <IonIcon icon={shieldCheckmarkOutline} style={{ fontSize: '0.85rem' }} />
+              SMKN 1 BERINGIN • PPLG PORTAL
             </div>
 
-            <h1
-              style={{
-                margin: '0 0 6px 0',
-                fontSize: '2.1rem',
-                fontWeight: 900,
-                color: '#ffffff',
-                letterSpacing: '-0.5px',
-                fontFamily: "'Outfit', sans-serif",
-                textShadow: '0 2px 10px rgba(0, 0, 0, 0.4)',
-              }}
-            >
-              Beringin Smart
+            {/* Glowing Gradient Title */}
+            <h1 className="login-gradient-title">
+              Beringin <span className="login-gradient-accent">Smart</span>
             </h1>
             <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.92rem' }}>
               Portal Layanan Pengaduan Sarana & Prasarana
             </p>
           </div>
 
-          {/* Liquid Glass Login Card */}
-          <IonCard
-            style={{
-              margin: 0,
-              borderRadius: '24px',
-              background: 'rgba(15, 23, 42, 0.65)',
-              backdropFilter: 'blur(24px) saturate(180%)',
-              WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-              boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-              border: '1px solid rgba(255, 255, 255, 0.14)',
-              overflow: 'hidden',
-            }}
-          >
-            <IonCardContent style={{ padding: '30px 24px' }}>
+          {/* 21st.dev Border-Beam Glassmorphism Card Wrapper */}
+          <div className="login-beam-card-wrapper">
+            <div className="login-frosted-card">
               <div style={{ marginBottom: '22px' }}>
                 <h2
                   style={{
                     margin: '0 0 4px 0',
-                    fontSize: '1.4rem',
+                    fontSize: '1.35rem',
                     fontWeight: 800,
                     color: '#ffffff',
                     fontFamily: "'Outfit', sans-serif",
+                    letterSpacing: '-0.3px',
                   }}
                 >
-                  Selamat Datang
+                  Masuk ke Portal
                 </h2>
-                <p style={{ margin: 0, fontSize: '0.85rem', color: '#94a3b8' }}>
-                  Silakan masuk menggunakan akun terdaftar Anda
+                <p style={{ margin: 0, fontSize: '0.84rem', color: '#94a3b8' }}>
+                  Gunakan email dan kata sandi akun sekolah Anda
                 </p>
               </div>
 
               <form onSubmit={handleLogin}>
-                {/* Email Input */}
-                <div style={{ marginBottom: '16px' }}>
-                  <label
-                    style={{
-                      display: 'block',
-                      marginBottom: '6px',
-                      fontSize: '0.82rem',
-                      fontWeight: 600,
-                      color: '#cbd5e1',
-                    }}
-                  >
-                    Alamat Email
-                  </label>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
-                      borderRadius: '14px',
-                      padding: '0 12px',
-                      backdropFilter: 'blur(8px)',
-                      boxShadow: 'inset 0 1px 2px rgba(0, 0, 0, 0.2)',
-                    }}
-                  >
-                    <IonIcon icon={mailOutline} style={{ fontSize: '1.2rem', color: '#a855f7', marginRight: '8px' }} />
+                {/* Input Email */}
+                <div className="login-input-group">
+                  <div className="login-input-label">
+                    <span>Alamat Email</span>
+                    <span style={{ fontSize: '0.74rem', color: '#64748b' }}>Wajib</span>
+                  </div>
+                  <div className="login-input-field-wrapper">
+                    <IonIcon icon={mailOutline} className="login-input-icon" />
                     <IonInput
                       type="email"
                       value={email}
@@ -204,75 +152,70 @@ const Login: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Password Input */}
-                <div style={{ marginBottom: '24px' }}>
-                  <label
-                    style={{
-                      display: 'block',
-                      marginBottom: '6px',
-                      fontSize: '0.82rem',
-                      fontWeight: 600,
-                      color: '#cbd5e1',
-                    }}
-                  >
-                    Kata Sandi
-                  </label>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
-                      borderRadius: '14px',
-                      padding: '0 12px',
-                      backdropFilter: 'blur(8px)',
-                      boxShadow: 'inset 0 1px 2px rgba(0, 0, 0, 0.2)',
-                    }}
-                  >
-                    <IonIcon icon={lockClosedOutline} style={{ fontSize: '1.2rem', color: '#a855f7', marginRight: '8px' }} />
+                {/* Input Kata Sandi dengan Tombol Eye Toggle */}
+                <div className="login-input-group" style={{ marginBottom: '24px' }}>
+                  <div className="login-input-label">
+                    <span>Kata Sandi</span>
+                    <span style={{ fontSize: '0.74rem', color: '#a855f7' }}>Terenkripsi</span>
+                  </div>
+                  <div className="login-input-field-wrapper">
+                    <IonIcon icon={lockClosedOutline} className="login-input-icon" />
                     <IonInput
-                      type="password"
+                      type={showPassword ? 'text' : 'password'}
                       value={password}
                       onIonInput={(e) => setPassword(e.detail.value!)}
                       placeholder="••••••••"
                       required
                       style={{ fontSize: '0.92rem', color: '#ffffff' }}
                     />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="login-password-toggle-btn"
+                      title={showPassword ? 'Sembunyikan Kata Sandi' : 'Tampilkan Kata Sandi'}
+                    >
+                      <IonIcon
+                        icon={showPassword ? eyeOffOutline : eyeOutline}
+                        style={{ fontSize: '1.2rem' }}
+                      />
+                    </button>
                   </div>
                 </div>
 
-                {/* Submit Button */}
-                <IonButton
-                  expand="block"
+                {/* 21st.dev Liquid Shimmer Submit Button */}
+                <button
                   type="submit"
                   disabled={loading}
-                  className="liquid-btn-primary"
-                  style={{
-                    height: '50px',
-                    margin: 0,
-                    fontSize: '0.96rem',
-                  }}
+                  className="login-shimmer-submit-btn"
                 >
                   {loading ? (
                     <IonSpinner name="crescent" color="light" />
                   ) : (
                     <>
-                      Masuk ke Sistem <IonIcon slot="end" icon={arrowForwardOutline} />
+                      <span>Masuk ke Sistem</span>
+                      <IonIcon icon={arrowForwardOutline} style={{ fontSize: '1.15rem' }} />
                     </>
                   )}
-                </IonButton>
+                </button>
               </form>
-            </IonCardContent>
-          </IonCard>
+            </div>
+          </div>
 
-          {/* Footer note */}
-          <div style={{ textAlign: 'center', marginTop: '20px' }}>
-            <span style={{ fontSize: '0.78rem', color: '#64748b' }}>
-              © 2026-2027 SMK Negeri 1 Beringin • Berdasarkan SKKNI No. 282/2016
+          {/* Security & Standard SKKNI Trust Badge */}
+          <div className="login-trust-badge">
+            <IonIcon icon={lockOpenOutline} style={{ color: '#10b981', fontSize: '0.9rem' }} />
+            <span>Terintegrasi Laravel Sanctum • SKKNI No. 282 Tahun 2016</span>
+          </div>
+
+          {/* Copyright Note */}
+          <div style={{ textAlign: 'center', marginTop: '16px' }}>
+            <span style={{ fontSize: '0.75rem', color: '#64748b' }}>
+              © 2026-2027 SMK Negeri 1 Beringin • Pengembang: Rizky Alfianno
             </span>
           </div>
         </div>
 
+        {/* Notifikasi Toast Error */}
         <IonToast
           isOpen={!!errorMessage}
           onDidDismiss={() => setErrorMessage('')}
