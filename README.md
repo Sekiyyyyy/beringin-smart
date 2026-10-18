@@ -1,37 +1,46 @@
-# 🔮 Beringin Smart — Liquid Glass Edition
+# Beringin Smart
 
 > **Sistem Informasi & Portal Pengaduan Sarana Prasarana Sekolah**  
 > *SMK Negeri 1 Beringin • Kompetensi Keahlian Pengembangan Perangkat Lunak dan Gim (PPLG)*  
 > Pengembang: **Rizky Alfianno** (XI PPLG)
 
-[![Ionic React](https://img.shields.io/badge/Frontend-Ionic%20React%20%2B%20Vite-6366f1?style=for-the-badge&logo=ionic)](https://ionicframework.com/)
-[![Laravel Sanctum](https://img.shields.io/badge/Backend-Laravel%2012%20REST%20API-8b5cf6?style=for-the-badge&logo=laravel)](https://laravel.com/)
-[![Theme](https://img.shields.io/badge/Theme-21st.dev%20Liquid%20Glass-ec4899?style=for-the-badge)](https://21st.dev/)
-[![SKKNI 282/2016](https://img.shields.io/badge/Standard-SKKNI%20No.%20282%2F2016-06b6d4?style=for-the-badge)](https://kemnaker.go.id/)
+[![Ionic React](https://img.shields.io/badge/Frontend-Ionic%20React%20%2B%20Vite-3880ff?style=for-the-badge&logo=ionic)](https://ionicframework.com/)
+[![Laravel Sanctum](https://img.shields.io/badge/Backend-Laravel%2012%20REST%20API-ff2d20?style=for-the-badge&logo=laravel)](https://laravel.com/)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178c6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![SKKNI 282/2016](https://img.shields.io/badge/Standard-SKKNI%20No.%20282%2F2016-0284c7?style=for-the-badge)](https://kemnaker.go.id/)
 
 ---
 
-## 💎 Konsep Desain: 21st.dev Liquid Glass
+## 📌 Tentang Proyek
 
-Proyek ini mengadopsi estetika antarmuka modern terdepan yang terinspirasi dari standar desain **21st.dev**:
-- **Frosted Glass Panels:** Panel kartu semi-transparan dengan *backdrop-filter blur (20px)* dan saturasi warna tinggi.
-- **Ambient Liquid Mesh Aura:** Latar belakang *deep obsidian* dengan pencahayaan dinamis gradien violet, cyan, dan magenta.
-- **Specular Highlights & Iridescent Borders:** Refleksi cahaya di tepi atas kartu dan efek cahaya lembut saat interaksi hover.
-- **Liquid Pill Components:** Tombol aksi, segment tab, dan indikator status berwujud kapsul cair bercahaya.
-- **Struktur Asli Terjaga 100%:** Tetap mematuhi seluruh modul LKPU & SKKNI 282/2016 (Navigasi toolbar, 3 ringkasan statistik, 2-kolom desktop / segment tab mobile, formulir pengaduan, daftar feed dengan live filter, serta halaman rincian tiket).
+**Beringin Smart** adalah aplikasi web dan mobile responsif yang dirancang untuk memfasilitasi pelaporan dan penanganan kendala sarana prasarana di lingkungan sekolah. Sistem ini menghubungkan siswa sebagai pelapor dengan tim sarana prasarana sekolah agar setiap fasilitas yang rusak atau membutuhkan perbaikan dapat tercatat, dipantau, dan diselesaikan secara cepat dan transparan.
+
+Proyek ini dikembangkan mengacu pada standar kompetensi keahlian **SKKNI No. 282 Tahun 2016** bidang pemrograman perangkat lunak.
 
 ---
 
-## 📁 Struktur Monorepo Proyek
+## ⚡ Fitur Utama
+
+- **Autentikasi & Otorisasi Pengguna:** Login aman berbasis token Bearer dengan Laravel Sanctum serta pembagian hak akses (*Role: Siswa & Petugas Sarpras*).
+- **Dashboard Statistik:** Ringkasan jumlah tiket pengaduan secara real-time (Total Laporan, Menunggu, dan Selesai).
+- **Formulir Pengaduan Sarpras:** Penginputan laporan kendala fasilitas lengkap dengan nama pelapor, lokasi/ruangan, kategori fasilitas, dan deskripsi masalah.
+- **Daftar Tiket Real-Time:** Menampilkan feed pengaduan yang dilengkapi fitur pencarian cepat (*live search*) dan filter kategori (Fasilitas Kelas, Laboratorium, Lingkungan).
+- **Halaman Rincian Tiket:** Informasi detail setiap laporan beserta status penanganan terkini.
+- **Pembaruan Status (Khusus Petugas):** Otorisasi penutupan tiket (*Tandai Selesai*) dengan validasi ketat di tingkat server.
+- **Tampilan Bersih & Responsif:** Desain modern, rapi, dan adaptif untuk perangkat mobile maupun layar desktop.
+
+---
+
+## 📁 Struktur Direktori
 
 ```
 Beringin-Smart/
-├── Beringin-Smart/                     # Frontend Web / Mobile (Ionic 8 + React + TypeScript + Vite)
+├── Beringin-Smart/                     # Frontend (Ionic 8 + React + TypeScript + Vite)
 │   ├── src/
-│   │   ├── pages/                      # Login.tsx, Home.tsx, Detail.tsx (Liquid Glass Theme)
-│   │   ├── context/                    # LaporanContext.tsx (API State Management)
-│   │   ├── services/                   # api.ts (Axios + Sanctum Bearer Token Interceptor)
-│   │   ├── theme/                      # variables.css (21st.dev Liquid Glass Design Tokens)
+│   │   ├── pages/                      # Login.tsx, Home.tsx, Detail.tsx
+│   │   ├── context/                    # LaporanContext.tsx (State Management)
+│   │   ├── services/                   # api.ts (Axios + Sanctum Bearer Token)
+│   │   ├── theme/                      # variables.css
 │   │   └── types/                      # laporan.ts
 │   └── package.json
 │
@@ -40,61 +49,69 @@ Beringin-Smart/
 │   │   ├── Http/Controllers/           # AuthController.php, LaporanController.php
 │   │   └── Models/                     # User.php, Laporan.php
 │   ├── database/
-│   │   ├── migrations/                 # Migrasi database skema pelaporan & token
-│   │   └── seeders/DatabaseSeeder.php  # Seeder: Rizky Alfianno (Siswa) & Pak Budi (Petugas)
-│   ├── routes/api.php                  # API Routes & Sanctum Middleware
-│   └── config/cors.php                 # Konfigurasi Cross-Origin Resource Sharing
+│   │   ├── migrations/                 # Migrasi skema database
+│   │   └── seeders/DatabaseSeeder.php  # Seeder data pengguna awal
+│   ├── routes/api.php                  # Endpoint API & Middleware Sanctum
+│   └── config/cors.php                 # Konfigurasi CORS
 └── README.md
 ```
 
 ---
 
-## 🚀 Panduan Menjalankan Sistem
+## 🚀 Panduan Menjalankan Aplikasi
 
-### 1. Server API Backend (`beringin-backend`)
+### 1. Backend API (`beringin-backend`)
+
 1. Masuk ke direktori backend:
    ```bash
    cd beringin-backend
    ```
-2. Jalankan migrasi dan seeder database awal:
+2. Jalankan migrasi dan seeder database:
    ```bash
    php artisan migrate:fresh --seed
    ```
-3. Nyalakan server backend:
+3. Jalankan server backend:
    ```bash
-   php artisan serve
+   php artisan serve --port=8000
    ```
-   *API Endpoint berjalan di:* `http://localhost:8000/api`
+   *Server API akan aktif di:* `http://localhost:8000/api`
 
 ---
 
-### 2. Aplikasi Frontend Ionic (`Beringin-Smart`)
-1. Buka terminal baru dan masuk ke folder frontend:
+### 2. Frontend Web/Mobile (`Beringin-Smart`)
+
+1. Buka terminal baru dan masuk ke direktori frontend:
    ```bash
    cd Beringin-Smart
    ```
-2. Jalankan server pengembangan Vite:
+2. Install dependensi (jika baru pertama kali kloning):
+   ```bash
+   npm install
+   ```
+3. Jalankan server pengembang:
    ```bash
    npm run dev
    ```
-   *Aplikasi dapat diakses melalui browser pada:* `http://localhost:5173` atau `http://localhost:8100`
+   *Aplikasi dapat diakses melalui browser di:* `http://localhost:8100` atau `http://localhost:5173`
 
 ---
 
-## 🔑 Kredensial Akun Bawaan (Seeder)
+## 🔑 Akun Uji Coba Bawaan (Default Seeder)
 
-| Peran (Role) | Email | Password | Wewenang & Hak Akses |
+| Peran (Role) | Email | Password | Hak Akses |
 | :--- | :--- | :--- | :--- |
-| **Petugas Sarpras** | `petugas@beringin.sch.id` | `password123` | Memantau seluruh tiket, melakukan verifikasi dan penutupan laporan (*Tandai Selesai*). |
-| **Siswa (Rizky Alfianno)** | `siswa@beringin.sch.id` | `password123` | Mengajukan tiket pengaduan baru, memantau riwayat pengaduan mandiri & status terkini. |
+| **Petugas Sarpras** | `petugas@beringin.sch.id` | `password` | Memantau seluruh laporan dan memperbarui status (*Tandai Selesai*). |
+| **Siswa (Rizky Alfianno)** | `siswa@beringin.sch.id` | `password` | Mengajukan tiket pengaduan sarpras dan memantau progres penanganan. |
 
 ---
 
-## 🛡️ Keamanan & Integrasi SKKNI No. 282/2016
+## 🛡️ Keamanan & Standar Teknis
 
-1. **Token Bearer Sanctum:** Seluruh komunikasi request data ke API Laravel diinjeksi dengan header `Authorization: Bearer <token>` melalui interceptor Axios.
-2. **Client-Side Auth Guard:** Proteksi halaman `Home` dan `Detail` mencegah akses tanpa autentikasi dan langsung mengarahkan user ke halaman `Login`.
-3. **Server-Side Authorization (HTTP 403):** Endpoint pembaruan status `PATCH /api/laporan/{id}/status` divalidasi ketat di tingkat controller Laravel. Permintaan dari role selain `petugas` ditolak dengan kode `403 Forbidden`.
+1. **Bearer Token Sanctum:** Setiap komunikasi ke endpoint backend dilindungi token autentikasi yang disertakan via interceptor Axios.
+2. **Client-Side Auth Guard:** Rute `/home` dan `/detail/:id` dilindungi sehingga pengguna yang belum login akan dialihkan otomatis ke `/login`.
+3. **Role Validation (Server-Side):** Aksi perubahan status pengaduan divalidasi langsung di controller backend (`403 Forbidden` jika pengguna bukan petugas).
+4. **CORS Handling:** Konfigurasi CORS diatur untuk mengizinkan request dari origin frontend secara aman.
 
 ---
-*© 2026-2027 SMK Negeri 1 Beringin • Modul LKPU Uji Kompetensi Keahlian PPLG.*
+
+*© SMK Negeri 1 Beringin • Modul UKK / LKPU PPLG.*
