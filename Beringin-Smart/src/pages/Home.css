@@ -1,51 +1,209 @@
-/* Home.css - Styling Pelengkap Beringin Smart */
+/* Home.css - Responsive Mobile-First Styling for Beringin Smart */
 
+/* Mobile-Friendly Header Toolbar */
 .home-header-toolbar {
   --background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #1e3a8a 100%);
   --color: #ffffff;
-  padding: 6px 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  --padding-start: 12px;
+  --padding-end: 8px;
+  --padding-top: 4px;
+  --padding-bottom: 4px;
+  --min-height: 58px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.mobile-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.mobile-logo-box {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+}
+
+.mobile-brand-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.mobile-brand-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-brand-subtitle {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.mobile-header-end {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.mobile-avatar-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3px 8px 3px 3px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.mobile-avatar-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.mobile-user-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+  max-width: 75px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 390px) {
+  .mobile-user-name {
+    display: none;
+  }
+  .mobile-avatar-pill {
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+}
+
+.mobile-logout-btn {
+  --color: #fca5a5;
+  --padding-start: 6px;
+  --padding-end: 6px;
+  margin: 0;
+  height: 36px;
+}
+
+/* Greeting Banner */
 .home-hero-greeting {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 20px 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+/* Mobile Segment Navigation */
+.mobile-view-segment {
+  background: #e2e8f0;
+  border-radius: 12px;
+  padding: 3px;
+  margin-bottom: 14px;
+}
+
+.mobile-view-segment ion-segment-button {
+  --background: transparent;
+  --background-checked: #ffffff;
+  --color: #64748b;
+  --color-checked: #0f172a;
+  --indicator-color: transparent;
+  --border-radius: 10px;
+  min-height: 38px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Category Filter Scroll */
+.category-filter-scroll {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin-top: 6px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-filter-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .filter-chip-active {
   --background: #3b82f6 !important;
   --color: #ffffff !important;
   font-weight: 700;
+  margin: 0;
+  flex-shrink: 0;
 }
 
 .filter-chip-inactive {
   --background: #ffffff !important;
   --color: #64748b !important;
   border: 1px solid #e2e8f0 !important;
+  margin: 0;
+  flex-shrink: 0;
 }
 
+/* Ticket Item */
 .ticket-card-hover {
-  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1.5px solid #edf2f7;
   border-radius: 14px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+.ticket-card-hover:active {
+  transform: scale(0.98);
 }
 
 .ticket-card-hover:hover {
-  transform: translateY(-2px);
   border-color: #93c5fd;
-  box-shadow: 0 10px 20px -3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 6px 16px -2px rgba(59, 130, 246, 0.1);
 }
 
 .empty-state-box {
   text-align: center;
-  padding: 40px 20px;
+  padding: 32px 16px;
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 14px;
   border: 2px dashed #e2e8f0;
   color: #94a3b8;
 }
