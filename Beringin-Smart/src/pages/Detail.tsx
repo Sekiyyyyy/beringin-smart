@@ -129,10 +129,10 @@ const Detail: React.FC = () => {
         className="ion-padding"
         style={{
           '--background': `
-            radial-gradient(ellipse 70% 55% at 15% 15%, rgba(99, 102, 241, 0.16) 0%, transparent 70%),
-            radial-gradient(ellipse 65% 55% at 85% 25%, rgba(56, 189, 248, 0.16) 0%, transparent 70%),
-            radial-gradient(ellipse 60% 50% at 20% 85%, rgba(129, 140, 248, 0.12) 0%, transparent 70%),
-            #f1f5f9
+            radial-gradient(ellipse 75% 60% at 15% 15%, rgba(99, 102, 241, 0.22) 0%, transparent 70%),
+            radial-gradient(ellipse 70% 60% at 85% 25%, rgba(56, 189, 248, 0.22) 0%, transparent 70%),
+            radial-gradient(ellipse 65% 55% at 20% 85%, rgba(129, 140, 248, 0.18) 0%, transparent 70%),
+            #ebf1f7
           `,
           position: 'relative',
         } as React.CSSProperties}
@@ -142,23 +142,12 @@ const Detail: React.FC = () => {
           <div className="liquid-blob blob-1" />
           <div className="liquid-blob blob-2" />
           <div className="liquid-blob blob-3" />
+          <div className="liquid-blob blob-4" />
         </div>
 
         <div style={{ maxWidth: '640px', margin: '24px auto', position: 'relative', zIndex: 1 }}>
           {/* Light Mode Liquid Glass Main Card */}
-          <IonCard
-            style={{
-              margin: 0,
-              borderRadius: '24px',
-              boxShadow: '0 20px 45px -12px rgba(99, 102, 241, 0.12), inset 0 1.5px 1px #ffffff',
-              border: '1px solid rgba(255, 255, 255, 0.85)',
-              borderTop: '1.5px solid #ffffff',
-              overflow: 'hidden',
-              background: 'rgba(255, 255, 255, 0.68)',
-              backdropFilter: 'blur(32px) saturate(200%)',
-              WebkitBackdropFilter: 'blur(32px) saturate(200%)',
-            }}
-          >
+          <div className="liquid-glass-card" style={{ margin: 0 }}>
             {/* Top Status Banner */}
             <div
               style={{
@@ -201,7 +190,7 @@ const Detail: React.FC = () => {
               )}
             </div>
 
-            <IonCardContent style={{ padding: '24px' }}>
+            <div style={{ padding: '24px', position: 'relative', zIndex: 1 }}>
               {/* Lokasi Ruangan */}
               <div style={{ marginBottom: '22px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#4f46e5', marginBottom: '6px' }}>
@@ -338,8 +327,8 @@ const Detail: React.FC = () => {
                   Status penanganan dipantau secara langsung oleh Petugas Sarpras
                 </div>
               )}
-            </IonCardContent>
-          </IonCard>
+            </div>
+          </div>
         </div>
 
         <IonToast

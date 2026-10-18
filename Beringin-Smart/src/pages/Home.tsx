@@ -204,10 +204,10 @@ const Home: React.FC = () => {
         className="ion-padding"
         style={{
           '--background': `
-            radial-gradient(ellipse 70% 55% at 15% 15%, rgba(99, 102, 241, 0.16) 0%, transparent 70%),
-            radial-gradient(ellipse 65% 55% at 85% 25%, rgba(56, 189, 248, 0.16) 0%, transparent 70%),
-            radial-gradient(ellipse 60% 50% at 20% 85%, rgba(129, 140, 248, 0.12) 0%, transparent 70%),
-            #f1f5f9
+            radial-gradient(ellipse 75% 60% at 15% 15%, rgba(99, 102, 241, 0.22) 0%, transparent 70%),
+            radial-gradient(ellipse 70% 60% at 85% 25%, rgba(56, 189, 248, 0.22) 0%, transparent 70%),
+            radial-gradient(ellipse 65% 55% at 20% 85%, rgba(129, 140, 248, 0.18) 0%, transparent 70%),
+            #ebf1f7
           `,
           position: 'relative',
         } as React.CSSProperties}
@@ -217,6 +217,7 @@ const Home: React.FC = () => {
           <div className="liquid-blob blob-1" />
           <div className="liquid-blob blob-2" />
           <div className="liquid-blob blob-3" />
+          <div className="liquid-blob blob-4" />
         </div>
 
         <IonGrid fixed style={{ maxWidth: '1200px', padding: 0, position: 'relative', zIndex: 1 }}>
@@ -358,8 +359,8 @@ const Home: React.FC = () => {
               className={activeTab !== 'buat' ? 'ion-hide-lg-down' : ''}
               style={{ marginBottom: '16px' }}
             >
-              <IonCard className="liquid-glass-card" style={{ margin: 0 }}>
-                <IonCardHeader style={{ borderBottom: '1px solid rgba(226, 232, 240, 0.8)', padding: '16px 18px' }}>
+              <div className="liquid-glass-card">
+                <div style={{ borderBottom: '1px solid rgba(226, 232, 240, 0.8)', padding: '16px 18px', position: 'relative', zIndex: 1 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div
                       style={{
@@ -377,11 +378,12 @@ const Home: React.FC = () => {
                       <IonIcon icon={documentTextOutline} />
                     </div>
                     <div>
-                      <IonCardSubtitle style={{ color: '#4f46e5', fontWeight: 700, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.6px' }}>
+                      <div style={{ color: '#4f46e5', fontWeight: 700, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.6px' }}>
                         LAYANAN SARPRAS
-                      </IonCardSubtitle>
-                      <IonCardTitle
+                      </div>
+                      <h3
                         style={{
+                          margin: 0,
                           fontSize: '1.15rem',
                           fontWeight: 800,
                           color: '#0f172a',
@@ -389,12 +391,12 @@ const Home: React.FC = () => {
                         }}
                       >
                         Buat Tiket Pengaduan
-                      </IonCardTitle>
+                      </h3>
                     </div>
                   </div>
-                </IonCardHeader>
+                </div>
 
-                <IonCardContent style={{ padding: '18px' }}>
+                <div style={{ padding: '18px', position: 'relative', zIndex: 1 }}>
                   <form onSubmit={handleSubmit}>
                     {/* Nama Pelapor */}
                     <div style={{ marginBottom: '14px' }}>
@@ -485,8 +487,8 @@ const Home: React.FC = () => {
                       )}
                     </IonButton>
                   </form>
-                </IonCardContent>
-              </IonCard>
+                </div>
+              </div>
             </IonCol>
 
             {/* List Tiket Laporan (Desktop: Selalu Tampil; Mobile: Tampil jika activeTab === 'daftar') */}
