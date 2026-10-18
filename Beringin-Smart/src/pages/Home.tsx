@@ -149,8 +149,8 @@ const Home: React.FC = () => {
         <IonToolbar className="home-header-toolbar">
           {/* Brand & App Info */}
           <div slot="start" className="mobile-header-brand">
-            <div className="mobile-logo-box">
-              <IonIcon icon={sparklesOutline} />
+            <div className="mobile-logo-box" style={{ padding: '4px', background: 'rgba(255, 255, 255, 0.08)' }}>
+              <img src="/logo-smkn1beringin.png" alt="SMKN 1 Beringin" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
 
             <div className="mobile-brand-text">

@@ -10,7 +10,6 @@ import {
 import {
   mailOutline,
   lockClosedOutline,
-  leafOutline,
   eyeOutline,
   eyeOffOutline,
 } from 'ionicons/icons';
@@ -60,13 +59,24 @@ const Login: React.FC = () => {
   return (
     <IonPage>
       <IonContent className="login-page-content ion-padding">
+        {/* Ambient Liquid Refraction Mesh in Background */}
+        <div className="login-bg-refraction">
+          <div className="login-liquid-orb-1" />
+          <div className="login-liquid-orb-2" />
+          <div className="login-liquid-orb-3" />
+        </div>
+
         <div className="login-card-container">
-          {/* Semua elemen berada di dalam satu card */}
+          {/* Semua elemen berada di dalam satu kartu Liquid Glass */}
           <div className="login-card">
-            {/* Header / Branding */}
+            {/* Header / Branding dengan Logo Resmi SMKN 1 Beringin */}
             <div className="login-header">
-              <div className="login-logo">
-                <IonIcon icon={leafOutline} />
+              <div className="login-school-logo-frame">
+                <img
+                  src="/logo-smkn1beringin.png"
+                  alt="SMK Negeri 1 Beringin"
+                  className="login-school-logo-img"
+                />
               </div>
               <h1 className="login-title">Beringin Smart</h1>
               <p className="login-subtitle">Masuk ke akun Anda</p>
@@ -115,7 +125,7 @@ const Login: React.FC = () => {
                 disabled={loading}
                 className="login-submit-btn"
               >
-                {loading ? <IonSpinner name="crescent" color="dark" /> : 'Masuk'}
+                {loading ? <IonSpinner name="crescent" color="light" /> : 'Masuk'}
               </button>
             </form>
 

@@ -1,59 +1,127 @@
-/* Login.css - Minimalist Human-Crafted Glassmorphism (Linear / Vercel Style) */
+/* Login.css - Authentic Liquid Glass Edition (Apple VisionOS / 21st.dev Style) */
 
 .login-page-content {
-  --background: #090d16;
+  --background: #080c16;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-/* Single Unified Card Container */
+/* Subtle, sophisticated ambient liquid shapes in background that provide true glass refraction */
+.login-bg-refraction {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.login-liquid-orb-1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  top: 10%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(67, 56, 202, 0.38) 0%, rgba(30, 27, 75, 0.15) 55%, transparent 70%);
+  filter: blur(60px);
+}
+
+.login-liquid-orb-2 {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  bottom: 10%;
+  right: 18%;
+  background: radial-gradient(circle, rgba(14, 116, 144, 0.32) 0%, rgba(15, 23, 42, 0.15) 55%, transparent 70%);
+  filter: blur(60px);
+}
+
+.login-liquid-orb-3 {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 65%);
+  filter: blur(45px);
+}
+
+/* Single Unified Liquid Glass Card */
 .login-card-container {
   width: 100%;
-  max-width: 400px;
+  max-width: 410px;
   margin: auto;
   padding: 16px;
+  position: relative;
+  z-index: 2;
 }
 
 .login-card {
-  background: rgba(17, 24, 39, 0.75);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 20px;
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(255, 255, 255, 0.08) 100%
+  ), rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.38);
+  border-left: 1.5px solid rgba(255, 255, 255, 0.28);
+  border-radius: 24px;
   padding: 36px 30px 28px 30px;
   box-shadow: 
-    0 24px 48px -12px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 30px 60px -15px rgba(0, 0, 0, 0.75),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 0 24px 0 rgba(255, 255, 255, 0.03);
 }
 
 /* Header inside card */
 .login-header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 26px;
 }
 
-.login-logo {
-  width: 44px;
-  height: 44px;
-  margin: 0 auto 16px auto;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+.login-school-logo-frame {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 14px auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f8fafc;
-  font-size: 1.35rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: 
+    0 10px 25px -5px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.login-school-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .login-title {
-  margin: 0 0 6px 0;
-  font-size: 1.5rem;
-  font-weight: 700;
+  margin: 0 0 4px 0;
+  font-size: 1.55rem;
+  font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.3px;
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  letter-spacing: -0.4px;
+  font-family: 'Outfit', sans-serif !important;
 }
 
 .login-subtitle {
@@ -63,7 +131,7 @@
   font-weight: 400;
 }
 
-/* Form Groups */
+/* Liquid Glass Form Fields */
 .login-field {
   margin-bottom: 18px;
 }
@@ -71,30 +139,40 @@
 .login-field-label {
   display: block;
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #cbd5e1;
   margin-bottom: 6px;
+  letter-spacing: 0.2px;
 }
 
 .login-field-input {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 12px;
-  padding: 0 12px;
-  transition: border-color 0.15s ease, background-color 0.15s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  padding: 0 14px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
 }
 
 .login-field-input:focus-within {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(99, 102, 241, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 0 16px rgba(99, 102, 241, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .login-field-input ion-icon {
   font-size: 1.15rem;
-  color: #64748b;
-  margin-right: 8px;
+  color: #818cf8;
+  margin-right: 10px;
   flex-shrink: 0;
 }
 
@@ -102,46 +180,66 @@
   --color: #ffffff;
   --placeholder-color: #64748b;
   --placeholder-opacity: 0.8;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 .login-toggle-eye {
   background: transparent;
   border: none;
-  color: #64748b;
+  color: #94a3b8;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.15s ease;
+  border-radius: 8px;
+  transition: color 0.15s ease, background-color 0.15s ease;
 }
 
 .login-toggle-eye:hover {
-  color: #cbd5e1;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* High-End Clean Submit Button */
+/* Liquid Glass Submit Button */
 .login-submit-btn {
   width: 100%;
-  height: 44px;
-  margin-top: 8px;
-  border: none;
-  border-radius: 12px;
-  background: #ffffff;
-  color: #090d16;
-  font-weight: 600;
-  font-size: 0.92rem;
+  height: 48px;
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.02) 60%,
+    rgba(255, 255, 255, 0.08) 100%
+  ), #4f46e5;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  box-shadow: 
+    0 12px 28px -6px rgba(79, 70, 229, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .login-submit-btn:hover:not(:disabled) {
-  opacity: 0.92;
-  transform: translateY(-1px);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0.04) 60%,
+    rgba(255, 255, 255, 0.1) 100%
+  ), #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 16px 32px -4px rgba(79, 70, 229, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 .login-submit-btn:active:not(:disabled) {
@@ -149,16 +247,17 @@
 }
 
 .login-submit-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
 /* Minimal Footer inside Card */
 .login-card-footer {
   margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
   font-size: 0.74rem;
   color: #64748b;
+  letter-spacing: 0.2px;
 }
