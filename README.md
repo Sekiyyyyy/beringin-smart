@@ -2,7 +2,7 @@
 
 > **Sistem Informasi & Portal Pengaduan Sarana Prasarana Sekolah**  
 > *SMK Negeri 1 Beringin • Kompetensi Keahlian Pengembangan Perangkat Lunak dan Gim (PPLG)*  
-> Pengembang: **Ahmad Rizky** (XI PPLG)
+> Pengembang: **Rizky Alfianno** (XI PPLG)
 
 [![Ionic React](https://img.shields.io/badge/Frontend-Ionic%20React%20%2B%20Vite-6366f1?style=for-the-badge&logo=ionic)](https://ionicframework.com/)
 [![Laravel Sanctum](https://img.shields.io/badge/Backend-Laravel%2012%20REST%20API-8b5cf6?style=for-the-badge&logo=laravel)](https://laravel.com/)
@@ -41,7 +41,7 @@ Beringin-Smart/
 │   │   └── Models/                     # User.php, Laporan.php
 │   ├── database/
 │   │   ├── migrations/                 # Migrasi database skema pelaporan & token
-│   │   └── seeders/DatabaseSeeder.php  # Seeder: Ahmad Rizky (Siswa) & Pak Budi (Petugas)
+│   │   └── seeders/DatabaseSeeder.php  # Seeder: Rizky Alfianno (Siswa) & Pak Budi (Petugas)
 │   ├── routes/api.php                  # API Routes & Sanctum Middleware
 │   └── config/cors.php                 # Konfigurasi Cross-Origin Resource Sharing
 └── README.md
@@ -86,7 +86,7 @@ Beringin-Smart/
 | Peran (Role) | Email | Password | Wewenang & Hak Akses |
 | :--- | :--- | :--- | :--- |
 | **Petugas Sarpras** | `petugas@beringin.sch.id` | `password123` | Memantau seluruh tiket, melakukan verifikasi dan penutupan laporan (*Tandai Selesai*). |
-| **Siswa (Ahmad Rizky)** | `siswa@beringin.sch.id` | `password123` | Mengajukan tiket pengaduan baru, memantau riwayat pengaduan mandiri & status terkini. |
+| **Siswa (Rizky Alfianno)** | `siswa@beringin.sch.id` | `password123` | Mengajukan tiket pengaduan baru, memantau riwayat pengaduan mandiri & status terkini. |
 
 ---
 

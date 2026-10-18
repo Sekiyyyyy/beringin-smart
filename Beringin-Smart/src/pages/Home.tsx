@@ -222,7 +222,7 @@ const Home: React.FC = () => {
                     fontFamily: "'Outfit', sans-serif",
                   }}
                 >
-                  Halo, {currentUser?.name ? currentUser.name.split(' ')[0] : 'Ahmad Rizky'}
+                  Halo, {currentUser?.name ? currentUser.name.split(' ')[0] : 'Rizky'}
                   <IonIcon icon={handRightOutline} style={{ color: '#fbbf24', fontSize: '1.2rem', marginLeft: '8px' }} />
                 </h2>
                 <p style={{ margin: '3px 0 0 0', fontSize: '0.8rem', color: '#94a3b8' }}>
