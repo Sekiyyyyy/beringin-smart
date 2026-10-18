@@ -58,41 +58,59 @@ Beringin-Smart/
 
 ---
 
-## 🚀 Panduan Menjalankan Aplikasi
+## 🚀 Panduan Kloning & Menjalankan Aplikasi
 
-### 1. Backend API (`beringin-backend`)
+### 1. Kloning Repository
 
-1. Masuk ke direktori backend:
-   ```bash
-   cd beringin-backend
-   ```
-2. Jalankan migrasi dan seeder database:
-   ```bash
-   php artisan migrate:fresh --seed
-   ```
-3. Jalankan server backend:
-   ```bash
-   php artisan serve --port=8000
-   ```
-   *Server API akan aktif di:* `http://localhost:8000/api`
+Buka terminal dan jalankan perintah berikut:
+```bash
+git clone https://github.com/Sekiyyyyy/beringin-smart.git
+cd beringin-smart
+```
 
 ---
 
-### 2. Frontend Web/Mobile (`Beringin-Smart`)
+### 2. Setup Backend API (`beringin-backend`)
 
-1. Buka terminal baru dan masuk ke direktori frontend:
-   ```bash
-   cd Beringin-Smart
-   ```
-2. Install dependensi (jika baru pertama kali kloning):
-   ```bash
-   npm install
-   ```
-3. Jalankan server pengembang:
-   ```bash
-   npm run dev
-   ```
-   *Aplikasi dapat diakses melalui browser di:* `http://localhost:8100` atau `http://localhost:5173`
+Buka terminal di root proyek, lalu ikuti langkah-langkah ini:
+```bash
+# 1. Masuk ke folder backend
+cd beringin-backend
+
+# 2. Pasang dependensi PHP / Laravel
+composer install
+
+# 3. Salin file environment
+cp .env.example .env
+# (Untuk pengguna Windows Command Prompt gunakan: copy .env.example .env)
+
+# 4. Generate application key
+php artisan key:generate
+
+# 5. Jalankan migrasi dan isi database awal (Seeder)
+php artisan migrate:fresh --seed
+
+# 6. Jalankan server API backend
+php artisan serve --port=8000
+```
+*Server API akan aktif di:* `http://localhost:8000/api`
+
+---
+
+### 3. Setup Frontend Web/Mobile (`Beringin-Smart`)
+
+Buka terminal baru di root proyek:
+```bash
+# 1. Masuk ke folder frontend
+cd Beringin-Smart
+
+# 2. Pasang dependensi Node.js
+npm install
+
+# 3. Jalankan server pengembang frontend
+npm run dev
+```
+*Aplikasi web dapat langsung diakses melalui browser di:* `http://localhost:8100` atau `http://localhost:5173`
 
 ---
 
