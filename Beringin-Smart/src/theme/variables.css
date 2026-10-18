@@ -1,2 +1,214 @@
-/* For information on how to create your own theme, please refer to:
-http://ionicframework.com/docs/theming/ */
+/**
+ * Beringin Smart - Design System & Modern Aesthetics
+ * Font: Plus Jakarta Sans
+ */
+
+:root {
+  --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Primary Palette (Indigo & Electric Blue) */
+  --ion-color-primary: #3b82f6;
+  --ion-color-primary-rgb: 59, 130, 246;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade: #2563eb;
+  --ion-color-primary-tint: #60a5fa;
+
+  /* Secondary / Dark Slate */
+  --ion-color-secondary: #0f172a;
+  --ion-color-secondary-rgb: 15, 23, 42;
+  --ion-color-secondary-contrast: #ffffff;
+
+  /* Success (Emerald) */
+  --ion-color-success: #10b981;
+  --ion-color-success-rgb: 16, 185, 129;
+  --ion-color-success-contrast: #ffffff;
+
+  /* Warning (Amber) */
+  --ion-color-warning: #f59e0b;
+  --ion-color-warning-rgb: 245, 158, 11;
+  --ion-color-warning-contrast: #ffffff;
+
+  /* Danger (Rose) */
+  --ion-color-danger: #ef4444;
+  --ion-color-danger-rgb: 239, 68, 68;
+  --ion-color-danger-contrast: #ffffff;
+
+  /* Light Surface Backgrounds */
+  --ion-background-color: #f8fafc;
+  --ion-card-background: #ffffff;
+  
+  /* Gradients */
+  --bg-gradient-header: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e3a8a 100%);
+  --bg-gradient-primary: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  --bg-gradient-card-blue: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  --bg-gradient-card-amber: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  --bg-gradient-card-green: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+
+  /* Shadows */
+  --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --card-shadow-hover: 0 12px 30px -4px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+}
+
+/* Global Font Override */
+* {
+  font-family: var(--font-family-base) !important;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism & Modern Card Styling */
+.bs-glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bs-glass-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Metric / Stat Cards */
+.bs-metric-card {
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.bs-metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.bs-icon-bubble {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+/* Smooth Interactive Ticket Items */
+.bs-ticket-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  cursor: pointer;
+}
+
+.bs-ticket-item:hover {
+  border-color: #93c5fd;
+  transform: translateX(4px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.08);
+}
+
+/* Custom Status Pills */
+.bs-badge-pending {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.3px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.bs-badge-completed {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.3px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Pulsing Dot Indicator */
+.bs-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: currentColor;
+  box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  animation: bs-pulse 1.8s infinite;
+}
+
+@keyframes bs-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+/* Modern Form Elements */
+.bs-form-card {
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--card-shadow);
+  background: #ffffff;
+}
+
+/* Buttons */
+.bs-btn-primary {
+  --background: var(--bg-gradient-primary);
+  --box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  --border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+.bs-btn-primary:hover {
+  --box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+}
+
+/* Clean Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

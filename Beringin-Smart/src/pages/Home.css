@@ -1,0 +1,51 @@
+/* Home.css - Styling Pelengkap Beringin Smart */
+
+.home-header-toolbar {
+  --background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #1e3a8a 100%);
+  --color: #ffffff;
+  padding: 6px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.home-hero-greeting {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.filter-chip-active {
+  --background: #3b82f6 !important;
+  --color: #ffffff !important;
+  font-weight: 700;
+}
+
+.filter-chip-inactive {
+  --background: #ffffff !important;
+  --color: #64748b !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.ticket-card-hover {
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1.5px solid #edf2f7;
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+.ticket-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: #93c5fd;
+  box-shadow: 0 10px 20px -3px rgba(59, 130, 246, 0.1);
+}
+
+.empty-state-box {
+  text-align: center;
+  padding: 40px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 2px dashed #e2e8f0;
+  color: #94a3b8;
+}
